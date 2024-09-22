@@ -1,19 +1,22 @@
 ---
 import Keyboard from '../components/3d/Keyboard'
+import BaseLayout from '../layouts/BaseLayout.astro'
 ---
 
-<!doctype html>
-<html lang='en'>
-  <!-- <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head> -->
-  <body class='bg-slate-950 h-full'>
-    <!-- header -->
-    <!-- main -->
-    <main>
-      <div class=''>hadeeeh</div>
-      <Keyboard client:load />
-    </main>
-    <!-- footer -->
-  </body>
-</html>
+<BaseLayout>
+  <div class='absolute'>
+    <Keyboard client:load />
+  </div>
+  <header>
+    <div class='font-heading text-6xl font-medium'>
+      <h1>Hi, I'm <i>Jesica.</i></h1>
+      <h2>A <i>professional</i> typer.</h2>
+    </div>
+    <p>
+      I don't just press keys&mdash;I build. Transforming ideas into reality,
+      one keystroke at a time. Let's team up to bring ideas to life.
+    </p>
+  </header>
+  <main></main>
+  <!-- footer -->
+</BaseLayout>
