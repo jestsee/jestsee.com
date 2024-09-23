@@ -4,12 +4,15 @@ import LinkedIn from '@icons/LinkedIn.astro'
 import X from '@icons/X.astro'
 
 const ICON_SIZE = 24
+const CLASS = 'transition-all hover:scale-110 hover:text-emerald-400'
 ---
 
-<div class='fixed bottom-0 left-12 flex flex-col items-center gap-8'>
-  <Github size={ICON_SIZE} />
-  <LinkedIn size={ICON_SIZE} />
-  <X size={ICON_SIZE} />
+<div
+  class='fixed bottom-0 left-12 flex flex-col items-center gap-8 max-md:hidden'
+>
+  <Github class={CLASS} size={ICON_SIZE} />
+  <LinkedIn class={CLASS} size={ICON_SIZE} />
+  <X class={CLASS} size={ICON_SIZE} />
   <div class='flex flex-col items-center'>
     <div class='h-1.5 w-1.5 rounded-full bg-white'></div>
     <div class='h-24 w-[1px] bg-white'></div>
