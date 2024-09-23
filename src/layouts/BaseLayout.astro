@@ -9,8 +9,11 @@ import '@fontsource-variable/familjen-grotesk'
   <!-- <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head> -->
-
-  <body class='bg-slate-950 text-white'>
-    <slot />
+  <body
+    class='bg-zinc-950 px-12 py-40 text-white transition-all max-lg:px-4 xl:flex xl:items-center xl:justify-center'
+  >
+    <div class='xl:w-[1200px]'>
+      <slot />
+    </div>
   </body>
 </html>
