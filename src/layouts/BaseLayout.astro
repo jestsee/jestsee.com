@@ -1,11 +1,12 @@
 ---
 import '@fontsource-variable/dm-sans'
 import '@fontsource-variable/familjen-grotesk'
+import SideLine from '@components/SideLine.astro'
 ---
 
 <!doctype html>
 <html lang='en'>
-  <!-- TODO head -->
+  <!-- TODO: head -->
   <body
     class='overflow-x-hidden bg-zinc-950 text-white xl:flex xl:items-center xl:justify-center'
   >
@@ -15,5 +16,7 @@ import '@fontsource-variable/familjen-grotesk'
         <slot />
       </div>
     </div>
+    <SideLine />
   </body>
+  <!-- TODO: footer -->
 </html>
