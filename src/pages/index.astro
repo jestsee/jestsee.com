@@ -4,10 +4,14 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 ---
 
 <BaseLayout>
-  <header class='flex flex-col gap-16'>
+  <div class='keyboard' slot='no-padding-content'>
+    <div class='buffer'></div>
+    <Keyboard client:load />
+  </div>
+  <header class='flex flex-col gap-16 max-sm:gap-12'>
     <div class='flex flex-col gap-6'>
       <div
-        class='font-heading text-[clamp(3rem,5vw,4.5rem)] font-medium leading-none'
+        class='font-heading text-[clamp(2.5rem,8vw,4.5rem)] font-medium leading-none'
       >
         <h1>Hi, I'm <i>Jesica.</i></h1>
         <h2>A <i>professional</i> typer.</h2>
@@ -19,10 +23,10 @@ import BaseLayout from '../layouts/BaseLayout.astro'
       </p>
     </div>
     <div class='flex gap-4'>
-      <a class='rounded bg-white px-6 py-2 text-zinc-950'>
+      <a class='rounded bg-white px-6 py-2 text-zinc-950 max-[400px]:text-sm'>
         <span class='font-medium'>See my works</span>
       </a>
-      <a class='rounded border border-white px-6 py-2'>
+      <a class='rounded border border-white px-6 py-2 max-[400px]:text-sm'>
         <span>Contact me</span>
       </a>
     </div>
@@ -32,3 +36,37 @@ import BaseLayout from '../layouts/BaseLayout.astro'
   </main>
   <!-- footer -->
 </BaseLayout>
+
+<style>
+  .buffer {
+    width: 240px;
+
+    @media (max-width: 800px) {
+      width: 40px;
+    }
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .keyboard {
+    display: flex;
+    position: absolute;
+    margin: 0;
+    top: 280px;
+    height: 100%;
+    width: 100%;
+
+    @media (max-width: 800px) {
+      top: 360px;
+    }
+
+    @media (max-width: 640px) {
+      top: 240px;
+    }
+
+    @media (max-width: 480px) {
+      top: 200px;
+    }
+  }
+</style>

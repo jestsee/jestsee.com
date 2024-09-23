@@ -1,46 +1,19 @@
 ---
 import '@fontsource-variable/dm-sans'
 import '@fontsource-variable/familjen-grotesk'
-import Keyboard from '../components/3d/Keyboard'
 ---
 
 <!doctype html>
 <html lang='en'>
-  <!-- TODO -->
-  <!-- <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head> -->
+  <!-- TODO head -->
   <body
     class='overflow-x-hidden bg-zinc-950 text-white xl:flex xl:items-center xl:justify-center'
   >
-    <div class='keyboard'>
-      <div class='buffer'></div>
-      <Keyboard client:load />
-    </div>
-    <div class='px-12 py-40 transition-all max-sm:px-4'>
+    <slot name='no-padding-content' />
+    <div class='px-12 py-36 transition-all max-sm:px-4'>
       <div class='xl:w-[1200px]'>
         <slot />
       </div>
     </div>
   </body>
-
-  <style>
-    /* .buffer {
-      width: 144px;
-    } */
-
-    .keyboard {
-      display: flex;
-      position: absolute;
-      margin: 0;
-      height: 100%;
-      width: 100%;
-      /* top: 240px; */
-
-      /* @media (max-width: 800px) {
-        left: 0;
-        transform: scale(0.8) translateX(-44px) translateY(36px); */
-      /* } */
-    }
-  </style>
 </html>
