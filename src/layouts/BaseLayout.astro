@@ -9,15 +9,48 @@ import BaseHead from '@components/BaseHead.astro'
 <html lang='en'>
   <!-- TODO: head -->
   <head><BaseHead title='Jesica' description='description' /></head>
-  <body
-    class='overflow-x-hidden bg-zinc-950 text-white xl:flex xl:items-center xl:justify-center'
-  >
+  <body>
     <slot name='no-padding-content' />
-    <div class='xl:w-[1200px]'>
-      <div class='px-12 py-36 transition-all max-sm:px-4 max-sm:py-16 md:px-24'>
+    <div
+      class='px-24 py-36 transition-all max-md:px-12 max-sm:px-4 max-sm:py-16'
+    >
+      <div class='xl:w-[1200px]'>
         <slot />
       </div>
     </div>
     <SideLine />
   </body><!-- TODO: footer -->
 </html>
+
+<style>
+  /* https://codepen.io/jh3y/pen/rNEBYxV */
+  html {
+    color-scheme: dark only;
+  }
+  body::before {
+    --size: 45px;
+    --line: color-mix(in lch, canvasText, transparent 70%);
+    content: '';
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background:
+      linear-gradient(90deg, var(--line) 1px, transparent 1px var(--size)) 50%
+        50% / var(--size) var(--size),
+      linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
+        var(--size) var(--size);
+    mask: linear-gradient(-20deg, transparent 50%, white);
+    top: 0;
+    transform-style: flat;
+    pointer-events: none;
+    z-index: -1;
+  }
+  body {
+    position: relative;
+    @media (min-width: 1280px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+</style>
