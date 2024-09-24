@@ -4,6 +4,14 @@ import Bed from './icons/Bed.astro'
 import Laptop from './icons/Laptop.astro'
 import Design from './icons/Design.astro'
 import Repeat from './icons/Repeat.astro'
+
+const KEYS = [
+  { key: 'KeyE', icon: Ramen },
+  { key: 'KeyS', icon: Bed },
+  { key: 'KeyC', icon: Laptop },
+  { key: 'KeyD', icon: Design },
+  { key: 'KeyR', icon: Repeat }
+]
 ---
 
 <script>
@@ -49,11 +57,13 @@ import Repeat from './icons/Repeat.astro'
 <!-- TODO: passing class props to most outer div -->
 <div>
   <div class='board'>
-    <button class='key' data-key='KeyE'><Ramen size={32} /></button>
-    <button class='key' data-key='KeyS'><Bed size={32} /></button>
-    <button class='key' data-key='KeyC'><Laptop size={32} /></button>
-    <button class='key' data-key='KeyD'><Design size={32} /></button>
-    <button class='key' data-key='KeyR'><Repeat size={32} /></button>
+    {
+      KEYS.map(({ key, icon: Icon }) => (
+        <button class='key' data-key={key}>
+          <Icon size={32} />
+        </button>
+      ))
+    }
   </div>
   <p class='mt-5 text-xs uppercase tracking-widest opacity-50'>
     press any of the keys above
