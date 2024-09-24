@@ -1,0 +1,123 @@
+---
+import Ramen from './icons/Ramen.astro'
+import Bed from './icons/Bed.astro'
+import Laptop from './icons/Laptop.astro'
+import Design from './icons/Design.astro'
+import Repeat from './icons/Repeat.astro'
+---
+
+<script>
+  const keyboardKeys = Array.from(document.querySelectorAll('button'))
+  const keyboardSound = document.querySelector('audio')
+
+  document.addEventListener('keydown', (e) => {
+    e.preventDefault()
+    const key = keyboardKeys.find((key) => key.dataset.key === e.code)
+
+    if (key && !key.classList.contains('isDown')) {
+      key.classList.toggle('isDown', true)
+      if (!keyboardSound) return
+
+      const newAudio = keyboardSound.cloneNode() as HTMLAudioElement
+      keyboardSound.after(newAudio)
+      newAudio.play()
+      setTimeout(() => newAudio.remove(), 500)
+    }
+  })
+
+  document.addEventListener('keyup', (e) => {
+    e.preventDefault()
+    const key = keyboardKeys.find((key) => key.dataset.key === e.code)
+    if (key) {
+      key.classList.toggle('isDown', false)
+    }
+  })
+
+  keyboardKeys.forEach((key) =>
+    key.addEventListener('mousedown', (e) => {
+      e.preventDefault()
+      if (!keyboardSound) return
+
+      const newAudio = keyboardSound.cloneNode() as HTMLAudioElement
+      keyboardSound.after(newAudio)
+      newAudio.play()
+      setTimeout(() => newAudio.remove(), 500)
+    })
+  )
+</script>
+
+<!-- TODO: passing class props to most outer div -->
+<div>
+  <div class='board'>
+    <button class='key' data-key='KeyE'><Ramen size={32} /></button>
+    <button class='key' data-key='KeyS'><Bed size={32} /></button>
+    <button class='key' data-key='KeyC'><Laptop size={32} /></button>
+    <button class='key' data-key='KeyD'><Design size={32} /></button>
+    <button class='key' data-key='KeyR'><Repeat size={32} /></button>
+  </div>
+  <p class='mt-5 text-xs uppercase tracking-widest opacity-50'>
+    press any of the keys above
+  </p>
+  <audio src='https://cdn.yoavik.com/codepen/mechanical-keyboard/keytype.mp3'
+  ></audio>
+</div>
+
+<style>
+  :root {
+    --background-2: #000;
+    --background-3: #282828;
+    --contrast: #fff;
+    --size: 4rem; /* keycap size */
+  }
+
+  /* adjust value inside rotateY to adjust the direction of each keycap */
+  .board {
+    transform: rotateZ(0turn) rotateY(0.05turn) rotateX(-0.1turn);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--size) * 0.04);
+    margin-left: calc(var(--size) * 0.2);
+    margin-bottom: calc(var(--size) * 0.1);
+  }
+
+  .key {
+    position: relative;
+    width: var(--size);
+    height: var(--size);
+    font-size: calc(var(--size) / 2);
+    border: 0.1rem solid var(--background-3);
+    border-radius: calc(var(--size) * 0.2);
+    background: var(--background-2);
+    color: var(--contrast);
+    box-shadow:
+      0.15rem 0.15rem 0 0 var(--background-3),
+      0.3rem 0.3rem 0 0 var(--background-3),
+      0.45rem 0.45rem 0 0 var(--background-3),
+      0.6rem 0.6rem 0 0 var(--background-3);
+    transition: 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .key:hover {
+    cursor: pointer;
+    transform: translateX(0.2rem) translateY(0.2rem);
+    box-shadow:
+      0.15rem 0.15rem 0 0 var(--background-3),
+      0.3rem 0.3rem 0 0 var(--background-3),
+      0.45rem 0.45rem 0 0 var(--background-3),
+      0.5rem 0.5rem 0 0 var(--background-3);
+  }
+  .key:active,
+  .key.isDown {
+    cursor: grabbing;
+    transform: translateX(0.8rem) translateY(0.8rem);
+    box-shadow:
+      0.1rem 0.1rem 0 0 var(--background-3),
+      0.1rem 0.1rem 0 0 var(--background-3),
+      0.2rem 0.2rem 0 0 var(--background-3),
+      0.2rem 0.2rem 0 0 var(--background-3);
+    filter: blur(0.02rem);
+  }
+</style>

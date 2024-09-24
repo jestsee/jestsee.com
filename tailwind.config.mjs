@@ -6,6 +6,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['DM Sans Variable', 'sans-serif'],
+        serif: ['DM Serif Text', 'serif'],
         heading: ['Familjen Grotesk Variable', 'sans-serif']
       }
     }

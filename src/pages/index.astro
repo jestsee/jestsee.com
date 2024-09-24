@@ -1,28 +1,26 @@
 ---
-import Keyboard from '@components/3d/Keyboard'
+import Keyboard from '@components/Keyboard.astro'
 import BaseLayout from '@layouts/BaseLayout.astro'
 ---
 
 <BaseLayout>
-  <!-- <div class='keyboard' slot='no-padding-content'>
-    <div class='buffer'></div>
-    <Keyboard client:load />
-  </div> -->
-  <header class='flex flex-col gap-16 max-sm:gap-12'>
-    <div class='flex flex-col gap-6'>
-      <div
-        class='font-heading text-[clamp(2.5rem,8vw,4rem)] font-medium leading-none'
-      >
-        <h1>Hi, I'm <i>Jesica.</i></h1>
-        <h2>A <i>professional</i> typer.</h2>
-      </div>
-      <p class='max-w-lg text-zinc-400 md:text-lg'>
-        I don't just press keys&mdash;I build. Transforming ideas into reality,
-        one keystroke at a time. Let's team up to
-        <span class='text-white underline'>bring ideas to life.</span>
-      </p>
+  <div class='flex flex-col items-center text-center'>
+    <!-- TODO: remove this div later -->
+    <div class='text-[clamp(2.5rem,8vw,4rem)] leading-none'>
+      <h1 class='font-semibold'>
+        Hi, I'm Jesica
+        <br />
+        A professional typer.
+      </h1>
     </div>
-    <div class='flex gap-4'>
+    <p class='mt-4 max-w-lg tracking-wide text-zinc-300'>
+      I don't just press keys&mdash;I build. Turning concepts into reality,
+      crafting solutions with every keystroke.
+    </p>
+    <div class='mt-6'>
+      <Keyboard />
+    </div>
+    <div class='mt-16 flex gap-4'>
       <a class='rounded bg-white px-6 py-2 text-zinc-950 max-[400px]:text-sm'>
         <span class='font-medium'>See my works</span>
       </a>
@@ -32,43 +30,10 @@ import BaseLayout from '@layouts/BaseLayout.astro'
         <span>Contact me</span>
       </a>
     </div>
-  </header>
+  </div>
+
   <main class='mt-[800px]'>
     <p>Next section</p>
   </main>
   <!-- footer -->
 </BaseLayout>
-
-<style>
-  .buffer {
-    width: 240px;
-
-    @media (max-width: 800px) {
-      width: 40px;
-    }
-    @media (max-width: 768px) {
-      display: none;
-    }
-  }
-
-  .keyboard {
-    display: flex;
-    position: absolute;
-    margin: 0;
-    top: 280px;
-    height: 100%;
-    width: 100%;
-
-    @media (max-width: 800px) {
-      top: 360px;
-    }
-
-    @media (max-width: 640px) {
-      top: 240px;
-    }
-
-    @media (max-width: 480px) {
-      top: 200px;
-    }
-  }
-</style>
