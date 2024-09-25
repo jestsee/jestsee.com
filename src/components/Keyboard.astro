@@ -56,7 +56,7 @@ const KEYS = [
 </script>
 
 <!-- TODO: passing class props to most outer div -->
-<div>
+<div class='max-xs:flex-col flex'>
   <div class='board'>
     {
       KEYS.map(({ key, icon: Icon, tooltip }) => (
@@ -69,18 +69,16 @@ const KEYS = [
         </div>
       ))
     }
-    <div class='key-position'>
-      <button class='key call-to-action'> Explore my works </button>
-    </div>
   </div>
-  <p
-    class='mt-5 text-xs uppercase tracking-widest opacity-50 max-md:text-[10px]'
-  >
-    press any of the keys above
-  </p>
-  <audio src='https://cdn.yoavik.com/codepen/mechanical-keyboard/keytype.mp3'
-  ></audio>
+  <div class='key-position flex items-center justify-center'>
+    <button class='key call-to-action'> Explore my works </button>
+  </div>
 </div>
+<p class='mt-5 text-xs uppercase tracking-widest opacity-50 max-md:text-[10px]'>
+  press any of the keys above
+</p>
+<audio src='https://cdn.yoavik.com/codepen/mechanical-keyboard/keytype.mp3'
+></audio>
 
 <style>
   :root {
@@ -102,6 +100,18 @@ const KEYS = [
     align-items: center;
     justify-content: center;
     gap: calc(var(--size) * 0.02);
+  }
+
+  .key.call-to-action {
+    /* filter: drop-shadow(0 0 48px #e35b0c); */
+    filter: drop-shadow(0 0 48px #d7d886c7);
+    width: 200px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      'Liberation Mono', 'Courier New', monospace;
   }
 
   .key-position {
@@ -126,15 +136,6 @@ const KEYS = [
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  .key.call-to-action {
-    filter: drop-shadow(0 0 40px #d7d886c7);
-    width: 200px;
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-      'Liberation Mono', 'Courier New', monospace;
   }
   .key:hover {
     cursor: pointer;
