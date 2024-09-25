@@ -6,11 +6,11 @@ import Design from './icons/Design.astro'
 import Repeat from './icons/Repeat.astro'
 
 const KEYS = [
-  { key: 'KeyE', icon: Ramen, tooltip: 'Eat' },
-  { key: 'KeyS', icon: Bed, tooltip: 'Sleep' },
-  { key: 'KeyD', icon: Design, tooltip: 'Design' },
-  { key: 'KeyC', icon: Laptop, tooltip: 'Code' },
-  { key: 'KeyR', icon: Repeat, tooltip: 'Repeat' }
+  { key: 'KeyE', icon: Ramen, tooltip: 'eat' },
+  { key: 'KeyS', icon: Bed, tooltip: 'sleep' },
+  { key: 'KeyD', icon: Design, tooltip: 'design' },
+  { key: 'KeyC', icon: Laptop, tooltip: 'code' },
+  { key: 'KeyR', icon: Repeat, tooltip: 'repeat' }
 ]
 ---
 
@@ -70,7 +70,9 @@ const KEYS = [
       ))
     }
   </div>
-  <p class='mt-5 text-xs uppercase tracking-widest opacity-50'>
+  <p
+    class='mt-5 text-xs uppercase tracking-widest opacity-50 max-md:text-[10px]'
+  >
     press any of the keys above
   </p>
   <audio src='https://cdn.yoavik.com/codepen/mechanical-keyboard/keytype.mp3'
@@ -85,15 +87,18 @@ const KEYS = [
     --size: 4rem; /* keycap size */
   }
 
+  @media (max-width: 640px) {
+    :root {
+      --size: 3rem;
+    }
+  }
+
   /* adjust value inside rotateY to adjust the direction of each keycap */
   .board {
-    /* transform: rotateZ(0turn) rotateY(0.05turn) rotateX(-0.1turn); */
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: calc(var(--size) * 0.04);
-    margin-left: calc(var(--size) * 0.2);
-    margin-bottom: calc(var(--size) * 0.1);
+    gap: calc(var(--size) * 0.02);
   }
 
   .key-position {
@@ -162,12 +167,9 @@ const KEYS = [
   [data-tooltip]:before {
     position: absolute;
     bottom: 100%;
-    /* left: 50%; */
     transform: translateX(-50%);
     margin-bottom: 5px;
-    /* margin-left: -80px; */
-    padding: 7px;
-    /* width: 100px; */
+    padding: 6px 12px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -177,6 +179,7 @@ const KEYS = [
     content: attr(data-tooltip);
     text-align: center;
     font-size: 14px;
+    text-transform: capitalize;
     line-height: 1.2;
   }
 
