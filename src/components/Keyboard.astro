@@ -6,11 +6,11 @@ import Design from './icons/Design.astro'
 import Repeat from './icons/Repeat.astro'
 
 const KEYS = [
-  { key: 'KeyE', icon: Ramen, tooltip: 'eat' },
-  { key: 'KeyS', icon: Bed, tooltip: 'sleep' },
-  { key: 'KeyD', icon: Design, tooltip: 'design' },
-  { key: 'KeyC', icon: Laptop, tooltip: 'code' },
-  { key: 'KeyR', icon: Repeat, tooltip: 'repeat' }
+  { key: 'KeyE', icon: Ramen, tooltip: 'Eat' },
+  { key: 'KeyS', icon: Bed, tooltip: 'Sleep' },
+  { key: 'KeyD', icon: Design, tooltip: 'Design' },
+  { key: 'KeyC', icon: Laptop, tooltip: 'Code' },
+  { key: 'KeyR', icon: Repeat, tooltip: 'Repeat' }
 ]
 ---
 
@@ -55,7 +55,6 @@ const KEYS = [
   )
 </script>
 
-<!-- TODO: passing class props to most outer div -->
 <div class='max-xs:flex-col flex'>
   <div class='board'>
     {
@@ -63,20 +62,19 @@ const KEYS = [
         <div data-tooltip={tooltip}>
           <div class='key-position'>
             <button class='key' data-key={key}>
-              <Icon size={32} />
+              <Icon size={40} />
             </button>
           </div>
         </div>
       ))
     }
   </div>
-  <div class='key-position flex items-center justify-center'>
-    <button class='key call-to-action'> Explore my works </button>
+  <div class='relative' data-tooltip="See what I've typed">
+    <div class='key-position flex items-center justify-center'>
+      <button class='key call-to-action'> Explore my works </button>
+    </div>
   </div>
 </div>
-<p class='mt-5 text-xs uppercase tracking-widest opacity-50 max-md:text-[10px]'>
-  press any of the keys above
-</p>
 <audio src='https://cdn.yoavik.com/codepen/mechanical-keyboard/keytype.mp3'
 ></audio>
 
@@ -85,7 +83,7 @@ const KEYS = [
     --background-2: #000;
     --background-3: #282828;
     --contrast: #fff;
-    --size: 4rem; /* keycap size */
+    --size: 5rem; /* keycap size */
   }
 
   @media (max-width: 640px) {
@@ -192,8 +190,9 @@ const KEYS = [
     content: attr(data-tooltip);
     text-align: center;
     font-size: 14px;
-    text-transform: capitalize;
     line-height: 1.2;
+    white-space: nowrap;
+    z-index: 2;
   }
 
   /* Triangle hack to make tooltip look like a speech bubble */

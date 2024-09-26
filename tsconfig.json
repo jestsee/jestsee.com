@@ -6,9 +6,7 @@
     "jsxImportSource": "react",
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@icons/*": ["src/components/icons/*"],
-      "@layouts/*": ["src/layouts/*"]
+      "@/*": ["./src/*"]
     }
   }
 }

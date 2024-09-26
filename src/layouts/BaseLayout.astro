@@ -1,21 +1,19 @@
 ---
 import '@fontsource-variable/dm-sans'
-import SideLine from '@components/SideLine.astro'
-import BaseHead from '@components/BaseHead.astro'
+import BaseHead from '@/components/BaseHead.astro'
 ---
 
 <!doctype html>
 <html lang='en'>
-  <!-- TODO: head -->
   <head><BaseHead title='Jesica' description='description' /></head>
   <body class='flex flex-col items-center bg-zinc-950 text-white'>
     <div
-      class='px-24 py-40 transition-all max-md:px-12 max-sm:px-4 max-sm:py-16'
+      class='px-24 py-56 transition-all max-md:px-12 max-sm:px-4 max-sm:py-16'
     >
       <div class='xl:w-[1024px]'>
         <slot />
       </div>
     </div>
-    <SideLine />
+    <!-- <SideLine /> -->
   </body><!-- TODO: footer -->
 </html>
