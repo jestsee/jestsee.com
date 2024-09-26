@@ -62,16 +62,16 @@ const KEYS = [
         <div data-tooltip={tooltip}>
           <div class='key-position'>
             <button class='key' data-key={key}>
-              <Icon size={40} />
+              <Icon />
             </button>
           </div>
         </div>
       ))
     }
   </div>
-  <div data-tooltip='Check out this keyboard source code'>
+  <div data-tooltip="See what I've typed">
     <div class='key-position flex items-center justify-center'>
-      <button class='key call-to-action'> Credit </button>
+      <button class='key call-to-action'> Explore more </button>
     </div>
   </div>
 </div>
@@ -86,9 +86,19 @@ const KEYS = [
     --size: 5rem; /* keycap size */
   }
 
+  svg {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
   @media (max-width: 640px) {
     :root {
       --size: 3rem;
+    }
+
+    svg {
+      width: 1.75rem;
+      height: 1.75rem;
     }
   }
 
@@ -101,9 +111,8 @@ const KEYS = [
   }
 
   .key.call-to-action {
-    /* filter: drop-shadow(0 0 48px #e35b0c); */
     filter: drop-shadow(0 0 48px #d8b486c7);
-    width: 120px;
+    width: 160px;
     font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;
