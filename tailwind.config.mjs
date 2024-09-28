@@ -19,7 +19,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['DM Sans Variable', 'sans-serif']
+        sans: ['DM Sans Variable', 'sans-serif'],
+        serif: ['Instrument Serif', 'serif']
       },
       screens: {
         xs: '480px'

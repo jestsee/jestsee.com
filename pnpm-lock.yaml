@@ -26,6 +26,9 @@ dependencies:
   '@fontsource-variable/dm-sans':
     specifier: ^5.1.0
     version: 5.1.0
+  '@fontsource/instrument-serif':
+    specifier: ^5.1.0
+    version: 5.1.0
   '@types/react':
     specifier: ^18.3.8
     version: 18.3.8
@@ -834,6 +837,10 @@ packages:
 
   /@fontsource-variable/dm-sans@5.1.0:
     resolution: {integrity: sha512-wPhOMY/3ipy0t5ZIQk7FTKd3uZqE1XP2Yd2oKe3HfMWCYkotbcoMLkBQXcZzf/SgdCdczSP/hiO/PAZb84Kbxw==}
+    dev: false
+
+  /@fontsource/instrument-serif@5.1.0:
+    resolution: {integrity: sha512-UFWtq2thItB7iVbJJC0aVaZZ4Y4AZNvKegaHQpPts9ZiBsQ2HvJA4EFDSvxu88CiRJv3yuLZUH7LSoJ+Ab6bcw==}
     dev: false
 
   /@humanwhocodes/module-importer@1.0.1:
