@@ -1,12 +1,14 @@
 ---
 import Keyboard from '@/components/home/Keyboard.astro'
+import TechStacks from '@/components/home/TechStacks'
 import GradientText from '@/components/home/GradientText'
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import SocialMediaIcons from '@/components/SocialMediaIcons'
 ---
 
 <BaseLayout>
-  <div class='flex flex-col items-center text-center'>
+  <div
+    class='my-auto flex h-screen flex-col items-center justify-center text-center'
+  >
     <GradientText />
     <h1
       class='mt-8 bg-gradient-to-b from-white to-zinc-200 bg-clip-text text-[clamp(2.5rem,8vw,4.5rem)] font-medium leading-none tracking-tighter text-transparent'
@@ -31,11 +33,11 @@ import SocialMediaIcons from '@/components/SocialMediaIcons'
       </p>
       <Keyboard />
     </div>
-    <SocialMediaIcons />
   </div>
 
-  <main class='mt-[800px]'>
-    <p>Next section</p>
+  <main class='h-40 text-3xl'>
+    <!-- <p>I've typed with these tech stacks</p> -->
+    <TechStacks />
   </main>
   <!-- footer -->
 </BaseLayout>
