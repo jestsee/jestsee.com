@@ -19,6 +19,7 @@
     "@astrojs/tailwind": "^5.1.1",
     "@fontsource-variable/dm-sans": "^5.1.0",
     "@fontsource/instrument-serif": "^5.1.0",
+    "@radix-ui/react-separator": "^1.1.0",
     "@types/react": "^18.3.8",
     "@types/react-dom": "^18.3.0",
     "astro": "^4.15.4",
