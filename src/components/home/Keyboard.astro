@@ -1,9 +1,9 @@
 ---
-import Ramen from './icons/Ramen.astro'
-import Bed from './icons/Bed.astro'
-import Laptop from './icons/Laptop.astro'
-import Design from './icons/Design.astro'
-import Repeat from './icons/Repeat.astro'
+import Ramen from '../icons/Ramen.astro'
+import Bed from '../icons/Bed.astro'
+import Laptop from '../icons/Laptop.astro'
+import Design from '../icons/Design.astro'
+import Repeat from '../icons/Repeat.astro'
 
 const KEYS = [
   { key: 'KeyE', icon: Ramen, tooltip: 'Eat' },
@@ -19,28 +19,28 @@ const KEYS = [
   const keyboardKeys = Array.from(document.querySelectorAll('button'))
   const keyboardSound = document.querySelector('audio')
 
-  document.addEventListener('keydown', (e) => {
-    e.preventDefault()
-    const key = keyboardKeys.find((key) => key.dataset.key === e.code)
+  // document.addEventListener('keydown', (e) => {
+  //   e.preventDefault()
+  //   const key = keyboardKeys.find((key) => key.dataset.key === e.code)
 
-    if (key && !key.classList.contains('isDown')) {
-      key.classList.toggle('isDown', true)
-      if (!keyboardSound) return
+  //   if (key && !key.classList.contains('isDown')) {
+  //     key.classList.toggle('isDown', true)
+  //     if (!keyboardSound) return
 
-      const newAudio = keyboardSound.cloneNode() as HTMLAudioElement
-      keyboardSound.after(newAudio)
-      newAudio.play()
-      setTimeout(() => newAudio.remove(), 500)
-    }
-  })
+  //     const newAudio = keyboardSound.cloneNode() as HTMLAudioElement
+  //     keyboardSound.after(newAudio)
+  //     newAudio.play()
+  //     setTimeout(() => newAudio.remove(), 500)
+  //   }
+  // })
 
-  document.addEventListener('keyup', (e) => {
-    e.preventDefault()
-    const key = keyboardKeys.find((key) => key.dataset.key === e.code)
-    if (key) {
-      key.classList.toggle('isDown', false)
-    }
-  })
+  // document.addEventListener('keyup', (e) => {
+  //   e.preventDefault()
+  //   const key = keyboardKeys.find((key) => key.dataset.key === e.code)
+  //   if (key) {
+  //     key.classList.toggle('isDown', false)
+  //   }
+  // })
 
   keyboardKeys.forEach((key) =>
     key.addEventListener('mousedown', (e) => {
@@ -55,7 +55,7 @@ const KEYS = [
   )
 </script>
 
-<div class='max-xs:flex-col flex'>
+<div class='flex max-xs:flex-col'>
   <div class='board'>
     {
       KEYS.map(({ key, icon: Icon, tooltip }) => (
@@ -70,8 +70,14 @@ const KEYS = [
     }
   </div>
   <div data-tooltip="See what I've typed">
+    <div
+      class='absolute h-full w-full translate-x-[10%] translate-y-[10%] bg-gradient-to-tr from-[#ff4430] via-[#d66d30] to-[#ffc288] blur-2xl'
+    >
+    </div>
     <div class='key-position flex items-center justify-center'>
-      <button class='key call-to-action'> Explore more </button>
+      <button class='key call-to-action'>
+        <p class='call-to-action-content'>Explore more</p>
+      </button>
     </div>
   </div>
 </div>
@@ -111,14 +117,30 @@ const KEYS = [
   }
 
   .key.call-to-action {
-    filter: drop-shadow(0 0 48px #d8b486c7);
     width: 160px;
+    color: #ff774e;
     font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.05rem;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
       'Liberation Mono', 'Courier New', monospace;
+  }
+
+  .call-to-action-content::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    left: 0;
+    top: 50%;
+    margin: 10px 20px;
+    background: #ff774e;
+    height: 1.5px;
+    transition: 0.3s ease-out;
+  }
+
+  .key.call-to-action:hover .call-to-action-content::after {
+    width: 75%;
   }
 
   .key-position {
@@ -194,7 +216,7 @@ const KEYS = [
     -moz-border-radius: 3px;
     border-radius: 3px;
     background-color: #000;
-    background-color: hsla(0, 0%, 20%, 0.9);
+    background-color: hsl(0, 0%, 20%);
     color: #fff;
     content: attr(data-tooltip);
     text-align: center;
@@ -212,7 +234,7 @@ const KEYS = [
     margin-left: -5px;
     width: 0;
     border-top: 5px solid #000;
-    border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+    border-top: 5px solid hsl(0, 0%, 20%);
     border-right: 5px solid transparent;
     border-left: 5px solid transparent;
     content: ' ';
