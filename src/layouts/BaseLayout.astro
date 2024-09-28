@@ -2,17 +2,20 @@
 import '@fontsource-variable/dm-sans'
 import '@fontsource/instrument-serif'
 import BaseHead from '@/components/BaseHead.astro'
+import BottomNavigationBar from '@/components/BottomNavigationBar'
 ---
 
 <!doctype html>
 <html lang='en'>
-  <head><BaseHead title='Jesica' description='description' /></head>
+  <head>
+    <BaseHead title='Jesica' description='description' />
+  </head>
   <body class='flex flex-col items-center bg-zinc-950 text-white'>
+    <BottomNavigationBar client:visible />
     <div class='px-24 transition-all max-xl:w-full max-md:px-12 max-sm:px-4'>
       <div class='xl:w-[1024px]'>
         <slot />
       </div>
     </div>
-    <!-- <SideLine /> -->
   </body><!-- TODO: footer -->
 </html>
