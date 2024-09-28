@@ -7,6 +7,7 @@ import { Github } from './icons/Github'
 import { LinkedIn } from './icons/LinkedIn'
 import { Envelope } from './icons/Envelope'
 import { Separator } from './ui/separator'
+import { Tooltip } from './ui/tooltip'
 
 const bottomNavigationItems = [
   {
@@ -51,11 +52,13 @@ const socialMediaItems = [
 
 const BottomNavigationBar = () => {
   return (
-    <div className='fixed bottom-8 z-50'>
+    <div className='fixed bottom-8 z-10'>
       <Dock direction='middle'>
         {bottomNavigationItems.map(({ name, icon: Icon, href }) => (
           <DockIcon key={name}>
-            <Icon className='size-6' />
+            <Tooltip content='ahayde' side='right'>
+              <Icon className='size-6' />
+            </Tooltip>
           </DockIcon>
         ))}
         <Separator orientation='vertical' className='h-full' />
