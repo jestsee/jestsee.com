@@ -68,7 +68,7 @@ const Tooltip = React.forwardRef<
                 'will-change-[transform,opacity]',
                 'data-[side=bottom]:animate-slideDownAndFade data-[side=left]:animate-slideLeftAndFade data-[side=right]:animate-slideRightAndFade data-[side=top]:animate-slideUpAndFade data-[state=closed]:animate-hide',
                 // other
-                'z-50 border border-slate-800',
+                'z-50',
                 className
               )}
               {...props}

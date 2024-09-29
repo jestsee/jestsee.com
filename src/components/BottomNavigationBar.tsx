@@ -8,10 +8,11 @@ import { LinkedIn } from './icons/LinkedIn'
 import { Envelope } from './icons/Envelope'
 import { Separator } from './ui/separator'
 import { Tooltip } from './ui/tooltip'
+import { useEffect, useState } from 'react'
 
 const bottomNavigationItems = [
   {
-    name: 'Home',
+    name: 'Hi 👋',
     icon: HandWaving,
     href: '/'
   },
@@ -51,20 +52,38 @@ const socialMediaItems = [
 ]
 
 const BottomNavigationBar = () => {
+  const [currentPath, setCurrentPath] = useState('')
+
+  useEffect(() => {
+    setCurrentPath(window.location.pathname)
+
+    document.addEventListener('astro:page-load', () => {
+      const pathname = window.location.pathname
+      setCurrentPath(pathname)
+    })
+  }, [])
+
   return (
     <div className='fixed bottom-8 z-10'>
       <Dock direction='middle'>
         {bottomNavigationItems.map(({ name, icon: Icon, href }) => (
           <DockIcon key={name}>
-            <Tooltip content='ahayde' side='right'>
-              <Icon className='size-6' />
-            </Tooltip>
+            <a href={href}>
+              <Tooltip content={name}>
+                <Icon className='size-6' />
+              </Tooltip>
+            </a>
+            {currentPath === href && (
+              <div className='absolute bottom-2 size-1 rounded-full bg-orange-600'></div>
+            )}
           </DockIcon>
         ))}
         <Separator orientation='vertical' className='h-full' />
         {socialMediaItems.map(({ name, icon: Icon, href }) => (
           <DockIcon key={name}>
-            <Icon className='size-6' />
+            <Tooltip content={name}>
+              <Icon className='size-6' />
+            </Tooltip>
           </DockIcon>
         ))}
       </Dock>
