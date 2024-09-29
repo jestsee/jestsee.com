@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef, type PropsWithChildren } from 'react'
+import React, { useEffect, useRef, type PropsWithChildren } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 
@@ -34,6 +34,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     ref
   ) => {
     const mouseX = useMotionValue(Infinity)
+    const mouseY = useRef(0)
 
     const renderChildren = () => {
       return React.Children.map(children, (child: any) => {
@@ -49,13 +50,22 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
       <motion.div
         ref={ref}
         onMouseMove={(e) => {
-          console.log('[in]', e.pageX)
           mouseX.set(e.pageX)
+          mouseY.current = e.pageY
         }}
         onMouseLeave={(e) => {
-          console.log('[out]', e.pageX)
-          if (mouseX.get() === e.pageX) return
-          mouseX.set(Infinity)
+          if (mouseX.get() !== e.pageX || mouseY.current !== e.pageY)
+            return mouseX.set(Infinity)
+
+          const mouseEventHandler = (e: MouseEvent) => {
+            // compare the current y value with the previous y value
+            if (Math.abs(mouseY.current - e.pageY) > 20) {
+              // if the difference is greater than 20 then set the mouseX value to infinity and remove the mousemove event listener
+              mouseX.set(Infinity)
+              document.removeEventListener('mousemove', mouseEventHandler)
+            }
+          }
+          document.addEventListener('mousemove', mouseEventHandler)
         }}
         {...props}
         className={cn(dockVariants({ className }), {
