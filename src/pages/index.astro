@@ -7,8 +7,12 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 
 <BaseLayout>
   <div
-    class='flex flex-col items-center text-center max-sm:py-16 sm:h-screen sm:justify-center'
+    class='relative flex flex-col items-center text-center max-sm:py-16 sm:h-screen sm:justify-center'
   >
+    <div
+      class='bg-radial-gradient absolute right-0 top-0 -z-10 size-3/4 -translate-y-1/2 translate-x-1/2 blur-[160px]'
+    >
+    </div>
     <GradientText />
     <h1
       class='mt-8 bg-gradient-to-b from-white to-zinc-200 bg-clip-text text-[clamp(2.5rem,8vw,4.5rem)] font-medium leading-none tracking-tighter text-transparent'
@@ -42,3 +46,13 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
   </main>
   <!-- footer -->
 </BaseLayout>
+
+<style>
+  .bg-radial-gradient {
+    background: radial-gradient(
+      circle,
+      rgba(255, 95, 49, 0.5) 40%,
+      rgba(41, 41, 41, 0) 100%
+    );
+  }
+</style>
