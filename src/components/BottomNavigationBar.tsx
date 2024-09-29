@@ -8,7 +8,9 @@ import { LinkedIn } from './icons/LinkedIn'
 import { Envelope } from './icons/Envelope'
 import { Separator } from './ui/separator'
 import { Tooltip } from './ui/tooltip'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { HandPalm } from './icons/HandPalm'
+import { cn } from '@/lib/utils'
 
 const bottomNavigationItems = [
   {
@@ -25,6 +27,11 @@ const bottomNavigationItems = [
     name: 'Blog',
     icon: ChatTeardropDots,
     href: '/blog'
+  },
+  {
+    name: 'About',
+    icon: HandPalm,
+    href: '/about'
   },
   {
     name: 'Bookmarks',
@@ -54,17 +61,40 @@ const socialMediaItems = [
 const BottomNavigationBar = () => {
   const [currentPath, setCurrentPath] = useState('')
 
+  const scrollY = useRef(0)
+  const [show, setShow] = useState(true)
+
   useEffect(() => {
     setCurrentPath(window.location.pathname)
+
+    window.addEventListener('scroll', handleScroll)
 
     document.addEventListener('astro:page-load', () => {
       const pathname = window.location.pathname
       setCurrentPath(pathname)
     })
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
   }, [])
 
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY
+    const isScrollingDown = scrollY.current < currentScrollY
+
+    scrollY.current = currentScrollY
+
+    setShow(!isScrollingDown)
+  }
+
   return (
-    <div className='fixed bottom-8 z-10'>
+    <div
+      className={cn('fixed z-10 transition-all duration-500', {
+        'bottom-8': show,
+        '-bottom-20': !show
+      })}
+    >
       <Dock direction='middle'>
         {bottomNavigationItems.map(({ name, icon: Icon, href }) => (
           <DockIcon key={name}>

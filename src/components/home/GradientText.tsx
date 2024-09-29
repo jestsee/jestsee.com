@@ -10,7 +10,7 @@ const GradientText = () => {
         <span className='mx-2 h-4 w-[1px] shrink-0 bg-gray-300/25' />
         <span
           className={cn(
-            `inline animate-gradient bg-gradient-to-r from-[#ff4430] via-[#d66d30] to-[#ff4430] bg-[length:var(--bg-size)_100%] bg-clip-text font-normal tracking-wide text-transparent`
+            `inline animate-gradient bg-gradient-to-r from-[#ff4430] via-[#d66d30] to-[#ff4430] bg-[length:var(--bg-size)_100%] bg-clip-text font-normal tracking-wide text-transparent max-sm:text-xs`
           )}
         >
           Check out my latest work
