@@ -12,11 +12,9 @@ import { ViewTransitions } from 'astro:transitions'
     <BaseHead title='Jesica' description='description' />
     <ViewTransitions />
   </head>
-  <body class='flex flex-col items-center bg-zinc-950 text-white'>
-    <div
-      class='overflow-x-hidden px-24 transition-all max-xl:w-full max-md:px-12 max-sm:px-4'
-    >
-      <div class='xl:w-[1024px]'>
+  <body class='bg-zinc-950 text-white'>
+    <div class='relative flex flex-col items-center overflow-x-hidden'>
+      <div class='custom:w-[1120px] w-full px-12 transition-all max-sm:px-4'>
         <slot />
       </div>
     </div>

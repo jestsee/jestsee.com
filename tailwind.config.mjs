@@ -23,7 +23,8 @@ module.exports = {
         serif: ['Instrument Serif', 'serif']
       },
       screens: {
-        xs: '480px'
+        xs: '480px',
+        custom: '1120px'
       },
       keyframes: {
         'accordion-down': {

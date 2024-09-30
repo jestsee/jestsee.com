@@ -90,10 +90,13 @@ const BottomNavigationBar = () => {
 
   return (
     <div
-      className={cn('fixed z-10 transition-all duration-500', {
-        'bottom-8': show,
-        '-bottom-20': !show
-      })}
+      className={cn(
+        'fixed left-1/2 z-10 -translate-x-1/2 transition-all duration-500',
+        {
+          'bottom-8': show,
+          '-bottom-20': !show
+        }
+      )}
     >
       <Dock direction='middle'>
         {bottomNavigationItems.map(({ name, icon: Icon, href }) => (
