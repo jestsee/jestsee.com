@@ -1,0 +1,66 @@
+---
+import { NextJs } from './icons/NextJs'
+import { Drizzle } from './icons/Drizzle'
+import { Nestjs } from './icons/NestJs'
+import { cn } from '@/lib/utils'
+import { Notion } from './icons/Notion'
+import { Image } from 'astro:assets'
+import { Tooltip } from './ui/tooltip'
+import bookmarkedImage from '../assets/bookmarked_cover_2.png'
+
+const techStackIcons = [NextJs, Nestjs, Drizzle, Notion]
+
+const durationClassArray = [
+  'duration-300',
+  'duration-500',
+  'duration-700',
+  'duration-900'
+]
+---
+
+<div
+  class='group relative ml-4 mt-4 w-[352px] flex-shrink-0 transition-all duration-500 hover:m-0'
+>
+  <div
+    class:list={[
+      'absolute -z-10 border border-zinc-700 bg-zinc-900 transition-all duration-300',
+      'left-8 top-10 h-[250px] w-[calc(320px-2rem)] rounded-md',
+      'group-hover:left-0 group-hover:top-0 group-hover:h-[328px] group-hover:w-[320px] group-hover:rounded-xl'
+    ]}
+  >
+  </div>
+  <div class='px-4 pt-4'>
+    <Image
+      src={bookmarkedImage}
+      alt='bookmarked project'
+      class='h-[160px] w-[calc(100%-2rem)] rounded-md border border-zinc-800 object-cover'
+    />
+    <div
+      class:list={[
+        'transition-all duration-300',
+        'ml-8 mr-4',
+        'group-hover:m-0'
+      ]}
+    >
+      <p class='mt-4 text-lg leading-none'>Bookmarked</p>
+      <p class='mt-2 text-sm tracking-wide text-zinc-400'>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+      </p>
+      <div class='mt-4 flex gap-4'>
+        {
+          techStackIcons.map((Icon, index) => (
+            <Tooltip content='Tech stack description goes here' client:visible>
+              <Icon
+                className={cn(
+                  'size-6 -translate-y-4 opacity-0 transition-all',
+                  durationClassArray[index],
+                  'group-hover:translate-y-0 group-hover:opacity-100'
+                )}
+              />
+            </Tooltip>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>

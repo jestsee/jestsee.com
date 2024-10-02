@@ -14,7 +14,9 @@ import { ViewTransitions } from 'astro:transitions'
   </head>
   <body class='bg-zinc-950 text-white'>
     <div class='relative flex flex-col items-center overflow-x-hidden'>
-      <div class='custom:w-[1120px] w-full px-12 transition-all max-sm:px-4'>
+      <div
+        class='w-full px-12 pb-32 transition-all max-sm:px-4 custom:w-[1120px]'
+      >
         <slot />
       </div>
     </div>

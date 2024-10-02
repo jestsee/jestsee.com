@@ -3,56 +3,68 @@ import Keyboard from '@/components/home/Keyboard.astro'
 import TechStacks from '@/components/home/TechStacks'
 import GradientText from '@/components/home/GradientText'
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import PortfolioCard from '@/components/PortfolioCard.astro'
 ---
 
 <BaseLayout>
-  <div
-    class='flex flex-col items-center py-16 text-center sm:min-h-screen sm:justify-center'
-  >
+  <main>
     <div
-      class='bg-radial-gradient absolute right-0 top-0 -z-10 size-3/4 -translate-y-2/3 translate-x-1/2 blur-[160px]'
+      class='flex flex-col items-center pt-16 text-center sm:min-h-screen sm:justify-center'
     >
-    </div>
-    <GradientText />
-    <h1
-      class='mt-8 bg-gradient-to-b from-white to-zinc-200 bg-clip-text text-[clamp(2.5rem,8vw,4.5rem)] font-medium leading-none tracking-tighter text-transparent'
-    >
-      Hi, I'm Jesica
-      <br />
-      A professional
-      <span class='font-serif font-normal italic tracking-wide'>typer.</span>
-    </h1>
-    <p class='mt-8 max-w-lg tracking-wide text-zinc-400 max-md:text-sm'>
-      I don't just press keys&mdash;I build. With every keystroke,<br
-        class='max-md:hidden'
-      /> I'm
-      <span class='text-zinc-200'> turning concepts into reality, </span>
-      crafting innovative solutions and bringing ideas to life.
-    </p>
-    <div class='mt-12'>
-      <p
-        class='mb-4 text-xs uppercase tracking-widest text-zinc-600 max-md:text-[10px]'
+      <div
+        class='bg-radial-gradient absolute right-0 top-0 -z-10 size-3/4 -translate-y-2/3 translate-x-1/2 blur-[160px]'
       >
-        press any of the keys below
+      </div>
+      <GradientText />
+      <h1
+        class='mt-8 bg-gradient-to-b from-white to-zinc-200 bg-clip-text text-[clamp(2.5rem,8vw,4.5rem)] font-medium leading-none tracking-tighter text-transparent'
+      >
+        Hi, I'm Jesica
+        <br />
+        A professional
+        <span class='font-serif font-normal italic tracking-wide'>typer.</span>
+      </h1>
+      <p class='mt-8 max-w-lg tracking-wide text-zinc-400 max-md:text-sm'>
+        I don't just press keys&mdash;I build. With every keystroke,<br
+          class='max-md:hidden'
+        /> I'm
+        <span class='text-zinc-200'> turning concepts into reality, </span>
+        crafting innovative solutions and bringing ideas to life.
       </p>
-      <Keyboard />
+      <div class='mt-12'>
+        <p
+          class='mb-4 text-xs uppercase tracking-widest text-zinc-600 max-md:text-[10px]'
+        >
+          press any of the keys below
+        </p>
+        <Keyboard />
+      </div>
+      <div class='h-16'></div>
     </div>
-    <div class='h-16'></div>
-  </div>
 
-  <main class='h-40 text-3xl'>
-    <!-- <p>I've typed with these tech stacks</p> -->
+    <div class:list={['flex h-96 justify-between']}>
+      <div class='space-y-2'>
+        <p class='text-orange-700'>Latest work</p>
+        <p class='text-3xl font-medium'>Bookmark tweets in Notion</p>
+        <p class='text-zinc-400'>
+          A personal project featuring a full-stack application that enables
+          users to save posts from X (formerly Twitter) to Notion via a web app
+          or Telegram bot.
+        </p>
+      </div>
+      <PortfolioCard />
+    </div>
     <TechStacks />
+    <!-- footer -->
   </main>
-  <!-- footer -->
-</BaseLayout>
 
-<style>
-  .bg-radial-gradient {
-    background: radial-gradient(
-      circle,
-      rgba(255, 95, 49, 0.5) 40%,
-      rgba(41, 41, 41, 0) 100%
-    );
-  }
-</style>
+  <style>
+    .bg-radial-gradient {
+      background: radial-gradient(
+        circle,
+        rgba(255, 95, 49, 0.5) 40%,
+        rgba(41, 41, 41, 0) 100%
+      );
+    }
+  </style>
+</BaseLayout>

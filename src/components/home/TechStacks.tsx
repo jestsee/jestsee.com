@@ -5,7 +5,7 @@ const TechStacks = () => {
   return (
     <div className='space-y-4'>
       <div>
-        <p className='text-sm text-orange-600'>I have typed with</p>
+        <p className='text-sm text-orange-700'>I have typed with</p>
         <p className='text-2xl'>these tech stacks</p>
       </div>
       <div className='relative flex w-full flex-col items-center justify-center overflow-hidden bg-zinc-950 md:shadow-xl'>

@@ -26,6 +26,13 @@ module.exports = {
         xs: '480px',
         custom: '1120px'
       },
+      transitionDuration: {
+        400: '400ms',
+        500: '500ms',
+        600: '600ms',
+        800: '800ms',
+        900: '900ms'
+      },
       keyframes: {
         'accordion-down': {
           from: {
