@@ -21,16 +21,16 @@ const durationClassArray = [
 <div class='group relative w-[352px] flex-shrink-0'>
   <div
     class:list={[
-      'absolute -z-10 border border-zinc-700 bg-zinc-900 transition-all duration-300',
+      'absolute -z-10 border border-zinc-700 bg-zinc-900 transition-all duration-500',
       'left-8 top-10 h-[250px] w-[calc(320px-2rem)] rotate-12 rounded-md',
-      'group-hover:left-0 group-hover:top-0 group-hover:h-[328px] group-hover:w-[320px] group-hover:rotate-0 group-hover:rounded-xl'
+      'group-hover:left-0 group-hover:top-0 group-hover:h-[320px] group-hover:w-[320px] group-hover:rotate-0 group-hover:rounded-xl'
     ]}
   >
   </div>
-  <div class='px-4 pt-4'>
+  <div class='group-hover:pt-4'>
     <div
       class:list={[
-        'transition-all duration-300',
+        'px-4 transition-all duration-500',
         'ml-12 mt-20 -translate-y-[20px] rotate-12',
         'group-hover:m-0 group-hover:translate-y-0 group-hover:rotate-0'
       ]}
@@ -59,9 +59,9 @@ const durationClassArray = [
       src={bookmarkedImage}
       alt='bookmarked project'
       class:list={[
-        'w-[calc(100%-2rem)] border border-zinc-800 object-cover transition-all duration-200',
+        'w-[calc(100%-4rem)] border border-zinc-800 object-cover transition-all duration-200',
         'h-[200px] -translate-y-8 -rotate-3 rounded-lg',
-        'hover:rounded-md group-hover:mt-4 group-hover:h-[160px] group-hover:translate-y-0 group-hover:rotate-0'
+        'group-hover:mt-4 group-hover:h-[180px] group-hover:w-[calc(100%-2rem)] group-hover:translate-y-0 group-hover:rotate-0 group-hover:rounded-b-xl group-hover:rounded-t-none'
       ]}
     />
   </div>

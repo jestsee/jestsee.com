@@ -1,0 +1,62 @@
+---
+import { NextJs } from './icons/NextJs'
+import { Drizzle } from './icons/Drizzle'
+import { Nestjs } from './icons/NestJs'
+import { cn } from '@/lib/utils'
+import { Notion } from './icons/Notion'
+import { Image } from 'astro:assets'
+import { Tooltip } from './ui/tooltip'
+import bookmarkedImage from '../assets/bookmarked_cover_2.png'
+
+const techStackIcons = [NextJs, Nestjs, Drizzle, Notion]
+
+const durationClassArray = [
+  'duration-300',
+  'duration-500',
+  'duration-700',
+  'duration-900'
+]
+---
+
+<div class='group relative w-[352px] flex-shrink-0'>
+  <div
+    class:list={[
+      'absolute -z-10 border border-zinc-700 p-4 transition-all duration-500',
+      'bg-gradient-to-bl from-zinc-900 via-zinc-900 to-black group-hover:bg-gradient-to-b',
+      // style for the animation
+      'left-8 top-10 h-[250px] w-[calc(320px-2rem)] rotate-12 rounded-md',
+      'group-hover:left-0 group-hover:top-0 group-hover:h-[320px] group-hover:w-[320px] group-hover:rotate-0 group-hover:rounded-xl'
+    ]}
+  >
+    <p class='mt-4 text-lg leading-none'>Bookmarked</p>
+    <p class='mt-2 text-sm tracking-wide text-zinc-400'>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+    </p>
+    <div class='mt-8 flex gap-4'>
+      {
+        techStackIcons.map((Icon, index) => (
+          <Tooltip content='Tech stack description goes here' client:visible>
+            <Icon
+              className={cn(
+                'size-6 -translate-y-4 transition-all',
+                durationClassArray[index]
+                // 'group-hover:translate-y-0 group-hover:opacity-100'
+              )}
+            />
+          </Tooltip>
+        ))
+      }
+    </div>
+  </div>
+  <div>
+    <Image
+      src={bookmarkedImage}
+      alt='bookmarked project'
+      class:list={[
+        'w-[calc(100%-4rem)] border border-zinc-800 object-cover transition-all duration-500',
+        'h-[200px] translate-y-40 -rotate-3 rounded-lg',
+        'group-hover:h-[180px] group-hover:w-[calc(100%-2rem)] group-hover:translate-y-40 group-hover:rotate-0 group-hover:rounded-b-xl group-hover:rounded-t-none'
+      ]}
+    />
+  </div>
+</div>

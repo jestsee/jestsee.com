@@ -93,7 +93,7 @@ const BottomNavigationBar = () => {
       className={cn(
         'fixed left-1/2 z-10 -translate-x-1/2 transition-all duration-500',
         {
-          'bottom-8': show,
+          'bottom-8 max-xs:bottom-4': show,
           '-bottom-20': !show
         }
       )}
