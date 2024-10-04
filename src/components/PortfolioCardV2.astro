@@ -18,11 +18,13 @@ const durationClassArray = [
 ]
 ---
 
-<div class='group relative w-[352px] flex-shrink-0'>
+<div class='group relative w-[320px] flex-shrink-0'>
   <div
     class:list={[
       'absolute -z-10 border border-zinc-700 p-4 transition-all duration-500',
       'bg-gradient-to-bl from-zinc-900 via-zinc-900 to-black group-hover:bg-gradient-to-b',
+      'shadow-[0_20px_50px_rgba(255,_119,_78,_0.35)]',
+      // 'shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(255,119,78,0.25)]',
       // style for the animation
       'left-8 top-10 h-[250px] w-[calc(320px-2rem)] rotate-12 rounded-md',
       'group-hover:left-0 group-hover:top-0 group-hover:h-[320px] group-hover:w-[320px] group-hover:rotate-0 group-hover:rounded-xl'
@@ -30,7 +32,7 @@ const durationClassArray = [
   >
     <p class='mt-4 text-lg leading-none'>Bookmarked</p>
     <p class='mt-2 text-sm tracking-wide text-zinc-400'>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+      A full-stack project that lets users save posts from X to Notion.
     </p>
     <div class='mt-8 flex gap-4'>
       {
@@ -52,10 +54,11 @@ const durationClassArray = [
     <Image
       src={bookmarkedImage}
       alt='bookmarked project'
+      width={320}
       class:list={[
-        'w-[calc(100%-4rem)] border border-zinc-800 object-cover transition-all duration-500',
+        'w-[calc(352px-4rem)] border border-zinc-800 object-cover transition-all duration-500',
         'h-[200px] translate-y-40 -rotate-3 rounded-lg',
-        'group-hover:h-[180px] group-hover:w-[calc(100%-2rem)] group-hover:translate-y-40 group-hover:rotate-0 group-hover:rounded-b-xl group-hover:rounded-t-none'
+        'group-hover:h-[180px] group-hover:w-[320px] group-hover:translate-y-40 group-hover:rotate-0 group-hover:rounded-b-xl group-hover:rounded-t-none'
       ]}
     />
   </div>

@@ -5,7 +5,7 @@ import GradientText from '@/components/home/GradientText'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import PortfolioCardV2 from '@/components/PortfolioCardV2.astro'
 import { Button } from '@/components/ui/button'
-import { ArrowRight } from '@/components/icons/ArrowRight'
+import { ArrowOutward } from '@/components/icons/ArrowOutward'
 ---
 
 <BaseLayout>
@@ -41,30 +41,45 @@ import { ArrowRight } from '@/components/icons/ArrowRight'
         </p>
         <Keyboard />
       </div>
-      <div class='h-16'></div>
+      <div class='h-32'></div>
     </div>
 
-    <div class='flex h-screen justify-between gap-16 max-md:flex-col-reverse'>
+    <div
+      class:list={[
+        'flex gap-16 md:justify-between',
+        'max-md:flex-col-reverse max-md:items-center max-md:gap-48'
+      ]}
+    >
       <div class='space-y-3'>
-        <p class='text-orange-700'>Latest work</p>
-        <p class='text-[clamp(1.5rem,4vw,3rem)] font-medium leading-none'>
-          Effortlessly Save and Organize Tweets in Notion
+        <p class='text-orange-600'>Latest work</p>
+        <p class='text-[clamp(1.5rem,4.5vw,3rem)] font-medium leading-none'>
+          Effortlessly Save and <br class='md:hidden' /> Organize Tweets in Notion
         </p>
         <p class='text-zinc-400'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus natus
-          aperiam itaque ea sit vero omnis minima fugit, commodi impedit modi
-          praesentium accusantium repellendus laborum quasi. Dolor corrupti
-          perferendis ipsum.
+          Effortlessly save and organize your favorite tweets in Notion, making
+          it easy to track insightful content and leverage Notion's powerful
+          full-text search. Discover how I built this solution and tackled key
+          challenges.
         </p>
         <div class='flex gap-x-4 pt-8'>
-          <Button>Read more <ArrowRight className='ml-2 size-4' /> </Button>
+          <Button className='group transition-all hover:scale-105'>
+            <ArrowOutward className='-ml-1 mr-2 size-4' />
+            Read more
+          </Button>
           <Button variant='outline'>See all projects</Button>
         </div>
       </div>
-      <!-- <PortfolioCard /> -->
       <PortfolioCardV2 />
     </div>
-    <TechStacks />
+
+    <!-- <div class='mt-16 space-y-4'>
+      <div>
+        <p class='text-orange-600'>Have typed with</p>
+        <p class='text-2xl'>these tech stacks</p>
+      </div>
+      <TechStacks />
+    </div> -->
+
     <!-- footer -->
   </main>
 
