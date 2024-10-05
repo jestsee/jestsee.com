@@ -1,0 +1,26 @@
+---
+interface Props {
+  category: string
+  title: string
+  date: string
+  description: string
+  image: string
+}
+
+const props = Astro.props
+---
+
+<div
+  class='h-[360px] cursor-pointer overflow-clip rounded-lg border border-zinc-800'
+>
+  <img src={props.image} class='h-[160px] w-full object-cover' />
+  <div class='h-[200px] space-y-2 bg-neutral-900 p-4'>
+    <p class='text-sm tracking-wider text-zinc-400'>
+      {props.category} &bull; {props.date}
+    </p>
+    <p class='text-lg leading-tight'>{props.title}</p>
+    <p class='text-sm text-zinc-400'>
+      {props.description}
+    </p>
+  </div>
+</div>

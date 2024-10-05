@@ -1,0 +1,69 @@
+---
+import { Button } from '@/components/ui/button'
+import { ArrowOutward } from '@/components/icons/ArrowOutward'
+import PostCard from '../PostCard.astro'
+
+const postCardsData = [
+  {
+    category: 'UI UX',
+    title: 'Compilation of Free Icons Set',
+    description:
+      "A curated list of free icon sets I've collected for design and development projects.",
+    date: 'September 17, 2024',
+    image: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb'
+  },
+  {
+    category: 'DevOps',
+    title: 'How I Use Dokku to Deploy Bookmarked',
+    description:
+      'A step-by-step guide on how i deployed my personal project, Bookmarked, using Dokku.',
+    date: 'September 17, 2024',
+    image: 'https://images.unsplash.com/photo-1587606607115-1165198fd0de'
+  },
+  {
+    category: 'Other',
+    title: 'How I Utilize My Old Android Phone as a Router',
+    description:
+      'Learn how I turned my old Android phone into a router, including the steps and tips from my personal experience.',
+    date: 'September 17, 2024',
+    image: 'https://images.unsplash.com/photo-1517404215738-15263e9f9178'
+  }
+]
+---
+
+<div class='mt-48 space-y-12'>
+  <div class='flex justify-between gap-y-8 max-md:flex-col md:items-center'>
+    <div class='max-w-[560px] space-y-3'>
+      <p class='tracking-wide text-orange-600'>Featured Posts</p>
+      <p class='text-[clamp(1.5rem,4.5vw,2.25rem)] font-medium leading-none'>
+        My Typed Words
+      </p>
+      <p class='text-zinc-400'>
+        Alongside building projects, I document my journey through blogs,
+        covering not only technical topics but how I tackle everyday challenges.
+      </p>
+    </div>
+    <Button> <ArrowOutward className='mr-2 size-4' /> See all posts</Button>
+  </div>
+  <div class='flex h-[320px] overflow-clip rounded-lg border border-zinc-800'>
+    <div class='flex flex-col gap-y-2 bg-neutral-900 p-12'>
+      <p class='text-sm leading-none text-zinc-400'>JavaScript</p>
+      <p class='mt-2 text-xl'>
+        Compilation of JavaScript UI Component Libraries for Your Projects
+      </p>
+      <p class='flex-1 text-sm tracking-wide text-zinc-400'>
+        A curated list of JavaScript UI component libraries I've collected—some
+        I’ve used, others I plan to explore.
+      </p>
+      <p class='text-sm text-zinc-400'>September 17, 2024</p>
+    </div>
+    <!-- src='https://images.unsplash.com/photo-1585772964418-00d2cf187dfd' -->
+    <img
+      src='https://images.unsplash.com/photo-1639610891357-9585605fafbd'
+      class='h-full w-3/5 object-cover'
+    />
+  </div>
+  <div class='grid grid-cols-3 gap-4'>
+    {postCardsData.map((post) => <PostCard {...post} />)}
+  </div>
+</div>

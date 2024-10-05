@@ -1,76 +1,15 @@
 ---
-import Keyboard from '@/components/home/Keyboard.astro'
-import TechStacks from '@/components/home/TechStacks'
-import GradientText from '@/components/home/GradientText'
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import PortfolioCardV2 from '@/components/PortfolioCardV2.astro'
-import { Button } from '@/components/ui/button'
-import { ArrowOutward } from '@/components/icons/ArrowOutward'
+import HeroSection from '@/components/home/HeroSection.astro'
+import FeaturedPostsSection from '@/components/home/FeaturedPostsSection.astro'
+import LatestWorkSection from '@/components/home/LatestWorkSection.astro'
 ---
 
 <BaseLayout>
   <main>
-    <div
-      class='flex flex-col items-center pt-16 text-center sm:min-h-screen sm:justify-center'
-    >
-      <div
-        class='bg-radial-gradient absolute right-0 top-0 -z-10 size-3/4 -translate-y-2/3 translate-x-1/2 blur-[160px]'
-      >
-      </div>
-      <GradientText />
-      <h1
-        class='mt-8 bg-gradient-to-b from-white to-zinc-200 bg-clip-text text-[clamp(2.5rem,8vw,4.5rem)] font-medium leading-none tracking-tighter text-transparent'
-      >
-        Hi, I'm Jesica
-        <br />
-        A professional
-        <span class='font-serif font-normal italic tracking-wide'>typer.</span>
-      </h1>
-      <p class='mt-8 max-w-lg tracking-wide text-zinc-400 max-md:text-sm'>
-        I don't just press keys&mdash;I build. With every keystroke,<br
-          class='max-md:hidden'
-        /> I'm
-        <span class='text-zinc-200'> turning concepts into reality, </span>
-        crafting innovative solutions and bringing ideas to life.
-      </p>
-      <div class='mt-12'>
-        <p
-          class='mb-4 text-xs uppercase tracking-widest text-zinc-600 max-md:text-[10px]'
-        >
-          press any of the keys below
-        </p>
-        <Keyboard />
-      </div>
-      <div class='h-32'></div>
-    </div>
-
-    <div
-      class:list={[
-        'flex gap-16 md:justify-between',
-        'max-md:flex-col-reverse max-md:items-center max-md:gap-48'
-      ]}
-    >
-      <div class='space-y-3'>
-        <p class='text-orange-600'>Latest work</p>
-        <p class='text-[clamp(1.5rem,4.5vw,3rem)] font-medium leading-none'>
-          Effortlessly Save and <br class='md:hidden' /> Organize Tweets in Notion
-        </p>
-        <p class='text-zinc-400'>
-          Effortlessly save and organize your favorite tweets in Notion, making
-          it easy to track insightful content and leverage Notion's powerful
-          full-text search. Discover how I built this solution and tackled key
-          challenges.
-        </p>
-        <div class='flex gap-x-4 pt-8'>
-          <Button className='group transition-all hover:scale-105'>
-            <ArrowOutward className='-ml-1 mr-2 size-4' />
-            Read more
-          </Button>
-          <Button variant='outline'>See all projects</Button>
-        </div>
-      </div>
-      <PortfolioCardV2 />
-    </div>
+    <HeroSection />
+    <LatestWorkSection />
+    <FeaturedPostsSection />
 
     <!-- <div class='mt-16 space-y-4'>
       <div>
@@ -82,14 +21,4 @@ import { ArrowOutward } from '@/components/icons/ArrowOutward'
 
     <!-- footer -->
   </main>
-
-  <style>
-    .bg-radial-gradient {
-      background: radial-gradient(
-        circle,
-        rgba(255, 95, 49, 0.5) 40%,
-        rgba(41, 41, 41, 0) 100%
-      );
-    }
-  </style>
 </BaseLayout>
