@@ -1,40 +1,41 @@
 ---
 import Keyboard from '@/components/home/Keyboard.astro'
-import GradientText from '@/components/home/GradientText'
 ---
 
-<div
-  class='flex flex-col items-center pt-16 text-center sm:min-h-screen sm:justify-center'
->
-  <!-- <div
-    class='bg-radial-gradient absolute right-0 top-0 -z-10 size-3/4 -translate-y-2/3 translate-x-1/2 blur-[160px]'
+<div class='flex flex-col gap-8 pt-16 sm:min-h-screen sm:justify-center'>
+  <div
+    class:list={[
+      'flex w-fit items-center rounded-full tracking-wide',
+      'gap-3 py-2 pl-3 pr-4',
+      'border border-zinc-700'
+    ]}
   >
-  </div> -->
-  <GradientText />
-  <h1
-    class='mt-8 bg-gradient-to-b from-white to-zinc-200 bg-clip-text text-[clamp(2.5rem,8vw,4.25rem)] font-medium leading-none tracking-tight text-transparent'
-  >
-    A professional
-    <span class='font-serif font-normal italic tracking-wide'>typer</span>
-    who builds with every
-    <span class='font-serif font-normal italic tracking-wide'> keystroke </span>
+    <div
+      class='drop-shadow-green animate-pulse-glow size-3 rounded-full bg-green-400'
+    >
+    </div>
+    <h3 class='text-sm'>Available for projects</h3>
+  </div>
+  <h1 class='text-5xl font-semibold leading-tight'>
+    A professional typer <br />
+    who builds with every <span
+      class='text-gradient bg-clip-text text-transparent'
+    >
+      keystroke</span
+    >
     <br />
   </h1>
-  <p class='mt-8 max-w-lg tracking-wide text-zinc-400 max-md:text-sm'>
-    Hi! I'm Jesica. I don't just press keys&mdash;I build.<br
-      class='max-md:hidden'
-    /> I'm
-    <span class='text-zinc-200'> turning concepts into reality, </span>
-    crafting innovative solutions and bringing ideas to life.
-  </p>
-  <div class='mt-12'>
-    <p
+  <h2 class='max-w-2xl font-medium tracking-wide text-zinc-400 max-md:text-sm'>
+    Hi! I'm Jesica, a software engineer who doesn’t just press keys—I build. I
+    turn concepts into reality, crafting innovative solutions and bringing ideas
+    to life through thoughtful code and design.
+  </h2>
+  <!-- <p
       class='mb-4 text-xs uppercase tracking-widest text-zinc-600 max-md:text-[10px]'
     >
       press any of the keys below
-    </p>
-    <Keyboard />
-  </div>
+    </p> -->
+  <Keyboard />
   <div class='h-32'></div>
 </div>
 
@@ -45,5 +46,35 @@ import GradientText from '@/components/home/GradientText'
       rgba(255, 95, 49, 0.5) 40%,
       rgba(41, 41, 41, 0) 100%
     );
+  }
+
+  .drop-shadow-green {
+    filter: drop-shadow(0px 0px 8px #59ff7e);
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s infinite;
+  }
+
+  .text-gradient {
+    background: rgb(165, 238, 209);
+    background: linear-gradient(
+      90deg,
+      rgba(165, 238, 209, 1) 0%,
+      rgba(239, 255, 193, 1) 100%
+    );
+    background-clip: text;
   }
 </style>

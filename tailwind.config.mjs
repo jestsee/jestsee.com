@@ -20,8 +20,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['DM Sans Variable', 'sans-serif'],
-        serif: ['Instrument Serif', 'serif']
+        sans: ['Manrope', 'sans-serif']
       },
       screens: {
         xs: '480px',

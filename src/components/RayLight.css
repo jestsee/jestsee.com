@@ -1,0 +1,8 @@
+.ray-light {
+  background-color: hsla(216, 57%, 45%, 0.5);
+  background: radial-gradient(
+    ellipse closest-side at center,
+    hsl(112, 57%, 69%) 0%,
+    hsla(216, 57%, 45%, 0.5) 100%
+  );
+}

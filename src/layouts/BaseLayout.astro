@@ -4,6 +4,7 @@ import '@fontsource/instrument-serif'
 import BaseHead from '@/components/BaseHead.astro'
 import BottomNavigationBar from '@/components/BottomNavigationBar'
 import { ViewTransitions } from 'astro:transitions'
+import RayLight from '@/components/RayLight'
 ---
 
 <!doctype html>
@@ -17,6 +18,9 @@ import { ViewTransitions } from 'astro:transitions'
       <div
         class='w-full px-12 pb-32 transition-all max-sm:px-4 custom:w-[1120px]'
       >
+        <RayLight className='opacity-50' />
+        <RayLight className='-top-32 left-[45%]' />
+        <RayLight className='left-[45%] top-[5%] h-[180px]' />
         <slot />
       </div>
     </div>

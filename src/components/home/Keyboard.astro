@@ -55,7 +55,7 @@ const KEYS = [
   )
 </script>
 
-<div class='flex max-xs:flex-col'>
+<div class='flex text-center max-xs:flex-col'>
   <div class='board'>
     {
       KEYS.map(({ key, icon: Icon, tooltip }) => (
@@ -69,7 +69,7 @@ const KEYS = [
       ))
     }
   </div>
-  <div class='mx-auto w-fit' data-tooltip="See what I've typed">
+  <div data-tooltip="See what I've typed">
     <div
       class='absolute h-full w-full translate-x-[12%] translate-y-[16%] -skew-x-12 bg-gradient-to-tr from-[#ff4430] via-[#d66d30] to-[#da8d6a] blur-md'
     >
