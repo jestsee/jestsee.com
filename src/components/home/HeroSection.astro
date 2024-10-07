@@ -6,29 +6,31 @@ import Keyboard from '@/components/home/Keyboard.astro'
   <div
     class:list={[
       'flex w-fit items-center rounded-full tracking-wide',
-      'gap-3 py-2 pl-3 pr-4',
-      'border border-zinc-700'
+      'gap-3 py-1.5 pl-3 pr-4',
+      'border border-zinc-600/70'
     ]}
   >
     <div
       class='drop-shadow-green animate-pulse-glow size-3 rounded-full bg-green-400'
     >
     </div>
-    <h3 class='text-sm'>Available for projects</h3>
+    <h3 class='text-sm max-xs:text-xs'>Available for projects</h3>
   </div>
-  <h1 class='text-5xl font-semibold leading-tight'>
+  <h1 class='text-[clamp(1.75rem,5vw,3rem)] font-semibold leading-tight'>
     A professional typer <br />
     who builds with every <span
       class='text-gradient bg-clip-text text-transparent'
     >
       keystroke</span
     >
-    <br />
   </h1>
   <h2 class='max-w-2xl font-medium tracking-wide text-zinc-400 max-md:text-sm'>
-    Hi! I'm Jesica, a software engineer who doesn’t just press keys—I build. I
-    turn concepts into reality, crafting innovative solutions and bringing ideas
-    to life through thoughtful code and design.
+    <span class='text-zinc-200'> Hi! I'm Jesica, </span>
+    a software engineer who doesn’t just press keys—<i>I build.</i>
+    <br class='max-sm:hidden' />
+    <span class='text-zinc-200'> I turn concepts into reality, </span>
+    crafting innovative solutions and bringing ideas to life through thoughtful code
+    and design.
   </h2>
   <!-- <p
       class='mb-4 text-xs uppercase tracking-widest text-zinc-600 max-md:text-[10px]'
@@ -40,14 +42,6 @@ import Keyboard from '@/components/home/Keyboard.astro'
 </div>
 
 <style>
-  .bg-radial-gradient {
-    background: radial-gradient(
-      circle,
-      rgba(255, 95, 49, 0.5) 40%,
-      rgba(41, 41, 41, 0) 100%
-    );
-  }
-
   .drop-shadow-green {
     filter: drop-shadow(0px 0px 8px #59ff7e);
   }

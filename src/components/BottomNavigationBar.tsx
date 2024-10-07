@@ -106,18 +106,10 @@ const BottomNavigationBar = () => {
               </Tooltip>
             </a>
             {currentPath === href && (
-              <div className='absolute bottom-2 size-1 rounded-full bg-orange-600'></div>
+              <div className='absolute bottom-2 size-1 rounded-full bg-emerald-200'></div>
             )}
           </DockIcon>
         ))}
-        {/* <Separator orientation='vertical' className='h-full' />
-        {socialMediaItems.map(({ name, icon: Icon, href }) => (
-          <DockIcon key={name}>
-            <Tooltip content={name}>
-              <Icon className='size-6' />
-            </Tooltip>
-          </DockIcon>
-        ))} */}
       </Dock>
     </div>
   )

@@ -55,7 +55,7 @@ const KEYS = [
   )
 </script>
 
-<div class='flex text-center max-xs:flex-col'>
+<div class='flex items-start text-center max-xs:flex-col'>
   <div class='board'>
     {
       KEYS.map(({ key, icon: Icon, tooltip }) => (
@@ -69,9 +69,13 @@ const KEYS = [
       ))
     }
   </div>
-  <div data-tooltip="See what I've typed">
+  <div class='group' data-tooltip="See what I've typed">
     <div
-      class='absolute h-full w-full translate-x-[12%] translate-y-[16%] -skew-x-12 bg-gradient-to-tr from-[#ff4430] via-[#d66d30] to-[#da8d6a] blur-md'
+      class:list={[
+        'absolute h-full w-full translate-x-[12%] translate-y-[16%] -skew-x-12 blur-md',
+        'bg-gradient-to-tr from-[#96efcb] to-[rgba(239,_255,_193,_1)] opacity-50',
+        'transition-all group-hover:opacity-75'
+      ]}
     >
     </div>
     <div class='key-position flex items-center justify-center'>
@@ -86,8 +90,8 @@ const KEYS = [
 
 <style>
   :root {
-    --background-2: #000;
-    --background-3: #282828;
+    --background-2: #000000;
+    --background-3: #232b34;
     --contrast: #fff;
     --size: 5rem; /* keycap size */
   }
@@ -118,7 +122,7 @@ const KEYS = [
 
   .key.call-to-action {
     width: 160px;
-    color: #ff774e;
+    color: rgba(239, 255, 193, 1);
     font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;
@@ -134,7 +138,7 @@ const KEYS = [
     left: 0;
     top: 50%;
     margin: 10px 15%;
-    background: #ff774e;
+    background: rgba(239, 255, 193, 1);
     height: 1.5px;
     transition: 0.3s ease-out;
   }
