@@ -1,4 +1,6 @@
 :root {
+  --speed: 0.25;
+  --blur: 4;
   --ease-in: linear(
     0 0%,
     0.0039 6.25%,
