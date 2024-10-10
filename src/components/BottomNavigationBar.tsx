@@ -3,13 +3,12 @@ import { HandWaving } from './icons/HandWaving'
 import { Briefcase } from './icons/Briefcase'
 import { ChatTeardropDots } from './icons/ChatTeardrop'
 import { Bookmarks } from './icons/Bookmarks'
-import { Github } from './icons/Github'
-import { LinkedIn } from './icons/LinkedIn'
-import { Envelope } from './icons/Envelope'
-import { Tooltip } from './ui/tooltip'
 import { useEffect, useRef, useState } from 'react'
 import { HandPalm } from './icons/HandPalm'
 import { cn } from '@/lib/utils'
+
+import './BottomNavigationBar.css'
+import { useNavTooltipHandler } from './BottomNavigationBarTooltipHandler'
 
 const bottomNavigationItems = [
   {
@@ -39,29 +38,13 @@ const bottomNavigationItems = [
   }
 ]
 
-const socialMediaItems = [
-  {
-    name: 'Email',
-    icon: Envelope,
-    href: ''
-  },
-  {
-    name: 'LinkedIn',
-    icon: LinkedIn,
-    href: ''
-  },
-  {
-    name: 'Github',
-    icon: Github,
-    href: ''
-  }
-]
-
 const BottomNavigationBar = () => {
   const [currentPath, setCurrentPath] = useState('')
 
   const scrollY = useRef(0)
   const [show, setShow] = useState(true)
+
+  useNavTooltipHandler()
 
   useEffect(() => {
     setCurrentPath(window.location.pathname)
@@ -88,30 +71,42 @@ const BottomNavigationBar = () => {
   }
 
   return (
-    <div
-      className={cn(
-        'fixed left-1/2 z-10 -translate-x-1/2 transition-all duration-500',
-        {
-          'bottom-8 max-xs:bottom-4': show,
-          '-bottom-20': !show
-        }
-      )}
-    >
-      <Dock direction='middle'>
-        {bottomNavigationItems.map(({ name, icon: Icon, href }) => (
-          <DockIcon key={name}>
-            <a href={href}>
-              <Tooltip content={name}>
+    <>
+      <nav
+        className={cn(
+          'nav',
+          // '-translate-x-1/2 left-1/2',
+          'fixed transition-all duration-500',
+          {
+            'bottom-8 max-xs:bottom-4': show,
+            '-bottom-20': !show
+          }
+        )}
+      >
+        <Dock direction='middle'>
+          {bottomNavigationItems.map(({ name, icon: Icon, href }) => (
+            <DockIcon key={name}>
+              <a href={href}>
                 <Icon className='size-6' />
-              </Tooltip>
-            </a>
-            {currentPath === href && (
-              <div className='absolute bottom-2 size-1 rounded-full bg-emerald-200'></div>
-            )}
-          </DockIcon>
-        ))}
-      </Dock>
-    </div>
+              </a>
+              {currentPath === href && (
+                <div className='absolute bottom-2 size-1 rounded-full bg-emerald-200'></div>
+              )}
+            </DockIcon>
+          ))}
+        </Dock>
+      </nav>
+      <div className='tip' aria-hidden='true'>
+        <div className='tip__track'>
+          <div>About</div>
+          <div>Work</div>
+          <div>Posts</div>
+          <div>Contact</div>
+          <div>Theme</div>
+          <div>Follow</div>
+        </div>
+      </div>
+    </>
   )
 }
 

@@ -16,10 +16,10 @@ const DEFAULT_MAGNIFICATION = 60
 const DEFAULT_DISTANCE = 140
 
 const dockVariants = cva(
-  'mx-auto w-max mt-8 h-[58px] p-2 flex gap-2 rounded-full border supports-backdrop-blur:bg-black/10 backdrop-blur-md border-slate-800'
+  'mx-auto w-max h-[58px] p-2 flex gap-2 rounded-full border supports-backdrop-blur:bg-black/10 backdrop-blur-md border-slate-800'
 )
 
-const Dock = React.forwardRef<HTMLDivElement, DockProps>(
+const Dock = React.forwardRef<HTMLUListElement, DockProps>(
   (
     {
       className,
@@ -45,7 +45,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     }
 
     return (
-      <motion.div
+      <motion.ul
         ref={ref}
         onMouseMove={(e) => {
           mouseX.set(e.pageX)
@@ -73,7 +73,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
         })}
       >
         {renderChildren()}
-      </motion.div>
+      </motion.ul>
     )
   }
 )
@@ -99,7 +99,7 @@ const DockIcon = ({
   children,
   ...props
 }: DockIconProps) => {
-  const ref = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLLIElement>(null)
 
   const distanceCalc = useTransform(mouseX, (val: number) => {
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 }
@@ -120,7 +120,7 @@ const DockIcon = ({
   })
 
   return (
-    <motion.div
+    <motion.li
       ref={ref}
       style={{ width }}
       className={cn(
@@ -130,7 +130,7 @@ const DockIcon = ({
       {...props}
     >
       {children}
-    </motion.div>
+    </motion.li>
   )
 }
 
