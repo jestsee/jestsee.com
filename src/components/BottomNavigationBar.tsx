@@ -85,7 +85,7 @@ const BottomNavigationBar = () => {
       >
         <Dock direction='middle'>
           {bottomNavigationItems.map(({ name, icon: Icon, href }) => (
-            <DockIcon key={name}>
+            <DockIcon key={name} className='px-6'>
               <a href={href}>
                 <Icon className='size-6' />
               </a>

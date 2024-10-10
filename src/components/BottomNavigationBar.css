@@ -137,23 +137,6 @@
     opacity calc(var(--speed) * 1s) var(--ease);
 }
 
-.tip__track {
-  translate: calc((var(--active) - 1) * (-100%)) 0;
-}
-
-.tip__track {
-  transition: translate calc(var(--speed) * 1s) calc(var(--speed) * 1s)
-    var(--ease);
-}
-
-.tip__track div {
-  filter: blur(calc((var(--blur, 0) * 1px) * (1 - var(--shown, 0))));
-  opacity: var(--shown, 0);
-  transition:
-    filter calc(var(--speed) * 1s) var(--ease-in),
-    opacity calc(var(--speed) * 1s) var(--ease);
-}
-
 :root:has(.nav ul:is(:hover, :focus-within)) {
   .tip {
     --show: 1;
