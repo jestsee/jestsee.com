@@ -44,7 +44,7 @@ const BottomNavigationBar = () => {
   const scrollY = useRef(0)
   const [show, setShow] = useState(true)
 
-  const { setTipXY } = useNavTooltipHandler()
+  useNavTooltipHandler()
 
   useEffect(() => {
     setCurrentPath(window.location.pathname)
@@ -52,7 +52,10 @@ const BottomNavigationBar = () => {
     const handlePathChange = () => {
       const pathname = window.location.pathname
       setCurrentPath(pathname)
-      setTipXY()
+
+      // hide the tooltip when the page is loaded
+      const tip = document.querySelector<HTMLDivElement>('.tip')
+      tip?.style.setProperty('--show', '0')
     }
 
     document.addEventListener('astro:page-load', handlePathChange)
@@ -76,6 +79,11 @@ const BottomNavigationBar = () => {
   return (
     <>
       <nav
+        onPointerMove={() => {
+          // remove the css variable which force tooltip to be hidden
+          const tip = document.querySelector<HTMLDivElement>('.tip')
+          tip?.style.removeProperty('--show')
+        }}
         className={cn('nav', 'fixed transition-all duration-500', {
           'bottom-8 max-xs:bottom-4': show,
           '-bottom-20': !show

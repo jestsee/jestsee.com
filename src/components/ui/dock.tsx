@@ -15,6 +15,7 @@ export interface DockProps extends VariantProps<typeof dockVariants> {
 const DEFAULT_MAGNIFICATION = 60
 const DEFAULT_DISTANCE = 140
 
+// TODO: simplify
 const dockVariants = cva(
   'mx-auto w-max h-[58px] p-2 flex rounded-full border supports-backdrop-blur:bg-black/10 backdrop-blur-md border-slate-800'
 )
