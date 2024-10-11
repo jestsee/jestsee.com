@@ -32,15 +32,19 @@
   position: fixed;
   bottom: anchor(top);
   left: anchor(left);
-  background: red;
   height: 2rem;
   width: 100px;
-  font-size: 0.875rem;
+
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  font-size: 0.8rem;
+  letter-spacing: 0.025em;
+  padding-bottom: 32px;
 
   border-radius: 100px;
   pointer-events: none;
   overflow: hidden;
-  border: 1px solid green;
+  border: 1px solid rgb(30 41 59);
   z-index: 999999999;
 }
 

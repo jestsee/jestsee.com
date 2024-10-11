@@ -4,7 +4,7 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 
 import { cn } from '@/lib/utils'
 
-export interface DockProps extends VariantProps<typeof dockVariants> {
+export interface DockProps {
   className?: string
   magnification?: number
   distance?: number
@@ -14,11 +14,6 @@ export interface DockProps extends VariantProps<typeof dockVariants> {
 
 const DEFAULT_MAGNIFICATION = 60
 const DEFAULT_DISTANCE = 140
-
-// TODO: simplify
-const dockVariants = cva(
-  'mx-auto w-max h-[58px] p-2 flex rounded-full border supports-backdrop-blur:bg-black/10 backdrop-blur-md border-slate-800'
-)
 
 const Dock = React.forwardRef<HTMLUListElement, DockProps>(
   (
@@ -67,11 +62,14 @@ const Dock = React.forwardRef<HTMLUListElement, DockProps>(
           document.addEventListener('mousemove', mouseEventHandler)
         }}
         {...props}
-        className={cn(dockVariants({ className }), {
-          'items-start': direction === 'top',
-          'items-center': direction === 'middle',
-          'items-end': direction === 'bottom'
-        })}
+        className={cn(
+          'supports-backdrop-blur:bg-black/10 mx-auto flex h-[58px] w-max rounded-full border border-slate-800 p-2 backdrop-blur-md',
+          {
+            'items-start': direction === 'top',
+            'items-center': direction === 'middle',
+            'items-end': direction === 'bottom'
+          }
+        )}
       >
         {renderChildren()}
       </motion.ul>
@@ -137,4 +135,4 @@ const DockIcon = ({
 
 DockIcon.displayName = 'DockIcon'
 
-export { Dock, DockIcon, dockVariants }
+export { Dock, DockIcon }
