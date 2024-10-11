@@ -8,8 +8,9 @@ import { HandPalm } from './icons/HandPalm'
 import { cn } from '@/lib/utils'
 
 import './BottomNavigationBar.css'
+import { useNavTooltipHandler } from './useNavTooltipHandler'
 
-const bottomNavigationItems = [
+export const bottomNavigationItems = [
   {
     name: 'Hi 👋',
     icon: HandWaving,
@@ -43,17 +44,22 @@ const BottomNavigationBar = () => {
   const scrollY = useRef(0)
   const [show, setShow] = useState(true)
 
+  const { setTipXY } = useNavTooltipHandler()
+
   useEffect(() => {
     setCurrentPath(window.location.pathname)
 
-    window.addEventListener('scroll', handleScroll)
-
-    document.addEventListener('astro:page-load', () => {
+    const handlePathChange = () => {
       const pathname = window.location.pathname
       setCurrentPath(pathname)
-    })
+      setTipXY()
+    }
+
+    document.addEventListener('astro:page-load', handlePathChange)
+    window.addEventListener('scroll', handleScroll)
 
     return () => {
+      document.removeEventListener('astro:page-load', handlePathChange)
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])

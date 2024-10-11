@@ -75,38 +75,38 @@
 }
 
 /* :has() hovering stuff */
-:root:has(nav li:nth-of-type(1):is(:hover, :focus-within)) {
+:root:has(nav li:nth-of-type(1):is(:hover)) {
   --active: 1;
   .tip__track div:nth-of-type(1) {
     --shown: 1;
   }
 }
-:root:has(nav li:nth-of-type(2):is(:hover, :focus-within)) {
+:root:has(nav li:nth-of-type(2):is(:hover)) {
   --active: 2;
   .tip__track div:nth-of-type(2) {
     --shown: 1;
   }
 }
-:root:has(nav li:nth-of-type(3):is(:hover, :focus-within)) {
+:root:has(nav li:nth-of-type(3):is(:hover)) {
   --active: 3;
   .tip__track div:nth-of-type(3) {
     --shown: 1;
   }
 }
-:root:has(nav li:nth-of-type(4):is(:hover, :focus-within)) {
+:root:has(nav li:nth-of-type(4):is(:hover)) {
   --active: 4;
   .tip__track div:nth-of-type(4) {
     --shown: 1;
   }
 }
-:root:has(nav li:nth-of-type(5):is(:hover, :focus-within)) {
+:root:has(nav li:nth-of-type(5):is(:hover)) {
   --active: 5;
 
   .tip__track div:nth-of-type(5) {
     --shown: 1;
   }
 }
-:root:has(nav li:nth-of-type(6):is(:hover, :focus-within)) {
+:root:has(nav li:nth-of-type(6):is(:hover)) {
   --active: 6;
 
   .tip__track div:nth-of-type(6) {
@@ -139,7 +139,7 @@
     opacity calc(var(--speed) * 1s) var(--ease);
 }
 
-:root:has(.nav ul:is(:hover, :focus-within)) {
+:root:has(.nav ul:is(:hover)) {
   .tip {
     --show: 1;
     filter: blur(0);

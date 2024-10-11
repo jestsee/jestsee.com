@@ -15,6 +15,15 @@ export const useNavTooltipHandler = () => {
     )
   }
 
+  let bounds: DOMRect
+
+  const track = ({ x, y }: { x: number; y: number }) => {
+    tipX.current = x - bounds.left
+    tipY.current = y - bounds.top
+
+    setTipXY()
+  }
+
   React.useEffect(() => {
     const nav = document.querySelector('nav')
     if (!nav) return
@@ -22,17 +31,6 @@ export const useNavTooltipHandler = () => {
     const navSize = nav.getBoundingClientRect().width
     nav.style.opacity = '1'
     nav.style.setProperty('--width', navSize.toString())
-
-    document.documentElement.dataset.orientation = 'horizontal'
-
-    // This is the part required for the pointer tracking...
-    let bounds: DOMRect
-    const track = ({ x, y }: { x: number; y: number }) => {
-      tipX.current = x - bounds.left
-      tipY.current = y - bounds.top
-
-      setTipXY()
-    }
 
     const teardown = () => {
       nav.removeEventListener('pointermove', track)
