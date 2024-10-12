@@ -69,19 +69,19 @@ const KEYS = [
       ))
     }
   </div>
-  <div class='group' data-tooltip="See what I've typed">
-    <div
-      class:list={[
-        'absolute h-full w-full translate-x-[12%] translate-y-[16%] -skew-x-12 blur-md',
-        'bg-gradient-to-tr from-[#96efcb] to-[rgba(239,_255,_193,_1)] opacity-50',
-        'transition-all group-hover:opacity-75'
-      ]}
-    >
-    </div>
-    <div class='key-position flex items-center justify-center'>
+  <div data-tooltip="See what I've typed">
+    <div class='key-position peer flex items-center justify-center'>
       <button class='key call-to-action'>
         <p class='call-to-action-content'>Explore more</p>
       </button>
+    </div>
+    <div
+      class:list={[
+        'absolute top-0 h-full w-full translate-x-[12%] translate-y-[16%] -skew-x-12 blur-md',
+        '-z-10 bg-gradient-to-tr from-[#96efcb] to-[rgba(239,_255,_193,_1)] opacity-50',
+        'transition-all peer-hover:opacity-75'
+      ]}
+    >
     </div>
   </div>
 </div>

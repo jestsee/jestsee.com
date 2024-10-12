@@ -109,7 +109,7 @@ const DockIcon = ({
   let widthSync = useTransform(
     distanceCalc,
     [-distance, 0, distance],
-    [40, magnification, 40]
+    [48, magnification, 48]
   )
 
   let width = useSpring(widthSync, {
