@@ -1,14 +1,15 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import HeroSection from '@/components/home/HeroSection.astro'
-import FeaturedPostsSection from '@/components/home/FeaturedPostsSection.astro'
 import BentoSection from '@/components/home/BentoSection'
+import Map from '@/components/home/Map'
 ---
 
 <BaseLayout>
   <main>
     <HeroSection />
-    <BentoSection client:load />
+    <!-- <BentoSection client:load /> -->
+    <Map client:only='react' />
     <!-- <FeaturedPostsSection /> -->
     <!-- <div class='mt-16 space-y-4'>
       <div>
@@ -21,3 +22,10 @@ import BentoSection from '@/components/home/BentoSection'
     <!-- footer -->
   </main>
 </BaseLayout>
+
+<style>
+  .leaflet-container {
+    width: 100%;
+    height: 100vh;
+  }
+</style>
