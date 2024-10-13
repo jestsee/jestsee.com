@@ -31,7 +31,7 @@ const ZoomButton = (props: ZoomButtonProps) => {
     <button
       onClick={onClick}
       className={cn(
-        'absolute size-12 rounded-full bg-zinc-950 text-3xl leading-none outline outline-2 outline-slate-700',
+        'absolute size-10 rounded-full bg-zinc-950 text-3xl leading-none outline outline-2 outline-slate-700',
         'scale-100 transition-all duration-300 hover:outline-4',
         hide && 'scale-0',
         className
@@ -42,7 +42,10 @@ const ZoomButton = (props: ZoomButtonProps) => {
   )
 }
 
-const Map = () => {
+interface MapLocationProps {
+  className?: string
+}
+const MapLocation = ({ className }: MapLocationProps) => {
   const mapRef = useRef<MapLeaflet>(null)
   const [currentZoom, setCurrentZoom] = useState(
     mapRef.current?.getZoom() ?? MAX_ZOOM
@@ -66,7 +69,7 @@ const Map = () => {
 
   return (
     // Make sure you set the height and width of the map container otherwise the map won't show
-    <div className='group relative w-fit'>
+    <div className='group relative h-full'>
       <MapContainer
         ref={mapRef}
         zoom={MAX_ZOOM}
@@ -79,7 +82,8 @@ const Map = () => {
         attributionControl={false} // Hides the attribution control
         className={cn(
           'brightness-[0.64] -hue-rotate-[24deg] saturate-[0.86]',
-          'size-[400px] rounded-2xl'
+          'h-full min-h-full w-full',
+          className
         )}
       >
         <TileLayer
@@ -90,14 +94,16 @@ const Map = () => {
         />
         {/* Additional map layers or components can be added here */}
       </MapContainer>
-
-      <div
-        className={cn(
-          'absolute left-1/2 top-1/2 size-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-200/50',
-          'drop-shadow-green animate-pulse',
-          'transition-all duration-400 group-hover:scale-125'
-        )}
-      ></div>
+      <div className='absolute left-0 top-0 flex h-full w-full items-center justify-center'>
+        <div
+          className={cn(
+            // 'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2',
+            'size-12 rounded-full bg-emerald-200/50',
+            'drop-shadow-green animate-pulse-glow',
+            'transition-all duration-400 group-hover:scale-125'
+          )}
+        ></div>
+      </div>
 
       <ZoomButton
         onClick={zoomIn}
@@ -118,4 +124,4 @@ const Map = () => {
   )
 }
 
-export default Map
+export default MapLocation

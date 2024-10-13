@@ -1,0 +1,32 @@
+---
+import MapLocation from '@/components/home/MapLocation'
+import { Location } from '../icons/Location'
+---
+
+<div class='grid grid-cols-3 gap-4'>
+  <div class='relative col-span-1 aspect-square'>
+    <div
+      class='absolute left-4 top-4 z-10 flex items-center gap-1 rounded-full border border-slate-700 bg-slate-950 px-2 py-1'
+    >
+      <Location className='size-3' />
+      <h3 class='text-xs font-medium tracking-wide text-slate-200'>Location</h3>
+    </div>
+    <MapLocation className='rounded-3xl' client:only='react' />
+  </div>
+  <div class='col-span-2 grid grid-cols-8 grid-rows-3 gap-4'>
+    <div class='col-span-5 row-span-1 bg-red-400'></div>
+    <div class='col-span-3 row-span-1 bg-red-400'></div>
+
+    <div class='col-span-full row-span-2 grid grid-cols-3 gap-4'>
+      <div class='col-span-1 bg-red-400'></div>
+      <div class='col-span-2 bg-red-400'></div>
+    </div>
+  </div>
+</div>
+<div class='mt-4 grid grid-cols-2 gap-4'>
+  <div class='col-span-1 aspect-[2/1] bg-red-400'></div>
+  <div class='col-span-1 grid grid-cols-7 gap-4'>
+    <div class='col-span-4 bg-red-400'></div>
+    <div class='col-span-3 bg-red-400'></div>
+  </div>
+</div>
