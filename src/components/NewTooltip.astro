@@ -1,0 +1,29 @@
+<div class='ayodong'>asdsad</div>
+<div class='anchornya'>anchor</div>
+
+<style>
+  .ayodong {
+    width: 80px;
+    height: 80px;
+    anchor-name: --my-ayodong;
+    bottom: 80px;
+    /* left: 50%;
+    transform: translateX(-50%); */
+    position: fixed;
+    width: 160px;
+    height: 160px;
+    background-color: red;
+  }
+
+  .anchornya {
+    position-anchor: --my-ayodong;
+    position: fixed;
+    background: palegreen;
+    width: 120px;
+    height: 40px;
+    /* left: anchor(right); */
+    /* right: anchor(left); */
+    /* bottom: anchor(top); */
+    top: anchor(bottom);
+  }
+</style>
