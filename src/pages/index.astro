@@ -2,15 +2,14 @@
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import HeroSection from '@/components/home/HeroSection.astro'
 import FeaturedPostsSection from '@/components/home/FeaturedPostsSection.astro'
-import LatestWorkSection from '@/components/home/LatestWorkSection.astro'
+import BentoSection from '@/components/home/BentoSection'
 ---
 
 <BaseLayout>
   <main>
     <HeroSection />
-    <LatestWorkSection />
-    <FeaturedPostsSection />
-
+    <BentoSection client:load />
+    <!-- <FeaturedPostsSection /> -->
     <!-- <div class='mt-16 space-y-4'>
       <div>
         <p class='text-orange-600'>Have typed with</p>
