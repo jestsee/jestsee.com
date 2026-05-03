@@ -31,19 +31,19 @@ export const bottomNavigationItems = [
     icon: ChatTeardropDots,
     href: '/blog',
     viewTransitionName: 'blog'
-  },
-  {
-    name: 'About',
-    icon: HandPalm,
-    href: '/about',
-    viewTransitionName: 'about'
-  },
-  {
-    name: 'Bookmarks',
-    icon: Bookmarks,
-    href: '/bookmarks',
-    viewTransitionName: 'bookmarks'
   }
+  // {
+  //   name: 'About',
+  //   icon: HandPalm,
+  //   href: '/about',
+  //   viewTransitionName: 'about'
+  // },
+  // {
+  //   name: 'Bookmarks',
+  //   icon: Bookmarks,
+  //   href: '/bookmarks',
+  //   viewTransitionName: 'bookmarks'
+  // }
 ] as const
 
 const BottomNavigationBar = () => {

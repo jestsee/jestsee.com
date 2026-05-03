@@ -29,7 +29,7 @@ const BentoItemNowPlaying = ({ initialData }: Props) => {
       href={data?.songUrl}
       target='_blank'
       className={cn(
-        'group relative flex h-full items-center gap-x-6 rounded-3xl p-5',
+        'group relative flex h-full items-center gap-x-4 rounded-3xl p-5',
         'max-lg:p-6 md:max-lg:flex-col md:max-lg:items-start md:max-lg:justify-between'
       )}
     >

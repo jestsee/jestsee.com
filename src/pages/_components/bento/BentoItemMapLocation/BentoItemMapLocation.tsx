@@ -37,7 +37,7 @@ const ZoomButton = (props: ZoomButtonProps) => {
     <button
       onClick={onClick}
       className={cn(
-        'absolute size-10 rounded-full bg-zinc-950 text-3xl leading-none outline outline-2 outline-slate-700',
+        'absolute size-12 rounded-full bg-zinc-950 text-3xl leading-none outline outline-2 outline-slate-700',
         'scale-100 transition-all duration-300 hover:outline-4',
         'flex items-center justify-center',
         hide && 'scale-0',

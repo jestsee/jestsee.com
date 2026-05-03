@@ -9,6 +9,7 @@ import vercel from '@astrojs/vercel'
 import { defineConfig, envField } from 'astro/config'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
+import lottie from 'astro-integration-lottie'
 
 let adapter = vercel()
 
@@ -108,6 +109,7 @@ export default defineConfig({
         }
       }
     }),
+    lottie(),
     sitemap(),
     react(),
     tailwind({

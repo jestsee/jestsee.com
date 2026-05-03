@@ -1,107 +1,44 @@
 ---
-import { Bookmarks } from '@icons/Bookmarks'
 import { Suitcase } from '@icons/Suitcase'
 
 import Link from '@/components/Link'
-import NotificationCard from '@/components/NotificationCard'
 
 import BentoBadge from '../BentoBadge'
+import IPhoneMockup from '@/components/IPhoneMockup.astro'
+import LottieAnimation from 'astro-integration-lottie/Lottie.astro'
 ---
 
 <Link
-  href='/projects/bookmarked'
+  href='https://www.biblebreathing.app'
+  aria-label='Featured work'
+  target='_blank'
   class:list={[
-    'relative flex h-full flex-col gap-3 overflow-hidden rounded-[inherit] px-5 pb-8 pt-4',
+    'relative flex h-full flex-row gap-3 overflow-hidden rounded-[inherit] px-5 pb-8 pt-4',
     'max-xs:pb-36 md:max-lg:gap-4'
   ]}
 >
-  <div class='space-y-5 max-md:z-40'>
-    <BentoBadge
-      icon={Suitcase}
-      text='Featured work'
-      className={{ component: 'w-fit' }}
-    />
+  <div class='space-y-8 max-md:z-40'>
+    <BentoBadge icon={Suitcase} className={{ component: 'w-fit' }} />
     <div class='space-y-3 xs:max-md:w-1/2'>
-      <p class='text-xl leading-none'>Bookmarked</p>
+      <p class='text-xl leading-none'>Bible Breathing</p>
       <p class='text-sm leading-relaxed text-slate-400'>
-        Effortlessly save and organize your favorite tweets in Notion using a
-        Telegram bot.
+        Find peace through gentle breathing and verses.
       </p>
     </div>
   </div>
   <div
-    class:list={[
-      'absolute top-[164px] self-center',
-      'max-xs:mt-4 max-[360px]:top-[172px]',
-      'xs:max-md:left-[calc(50%+16px)] xs:max-md:top-14 xs:max-md:scale-110'
-    ]}
+    class='-mr-1 h-[108%] w-full overflow-hidden rounded-xl bg-gradient-to-b from-[#F3FFF2] via-[#A7DBAA] to-[#356D39]'
   >
-    <div
-      class:list={[
-        'relative flex flex-col items-center',
-        'bookmarked-notification-card'
-      ]}
-    >
-      <div
-        class:list={[
-          'pointer-events-none absolute z-30 h-[125%] w-[125%]',
-          'bg-gradient-to-t from-[var(--card-background)] to-transparent'
-        ]}
-      >
+    <IPhoneMockup class:list='scale-[.9] -mt-2.5'>
+      <div class='w-full'>
+        <LottieAnimation
+          src='/bible-breathing-session.json'
+          autoplay='visible'
+        />
       </div>
-      <NotificationCard
-        sender='Bookmarked'
-        time='Just now'
-        message='Your bookmark has been saved'
-        class:list={[
-          'z-20 text-slate-700 max-xs:w-[300px]',
-          'transition-all duration-300',
-          'group-hover:-mt-2 group-hover:scale-105',
-          'hidden-notification-card'
-        ]}
-        ><Bookmarks className='size-6' />
-      </NotificationCard>
-
-      <NotificationCard
-        sender='Bookmarked'
-        time='1m ago'
-        message='Bookmarking this thread'
-        class:list={[
-          'z-10 -mt-8 w-[88%] bg-slate-400 text-slate-800',
-          'transition-all duration-500',
-          'group-hover:-mt-2 group-hover:scale-105',
-          'hidden-notification-card'
-        ]}
-        ><Bookmarks className='size-6' />
-      </NotificationCard>
-    </div>
+    </IPhoneMockup>
   </div>
 </Link>
-
-<script>
-  document.addEventListener('astro:page-load', () => {
-    if (!document.getElementById('bento')) return
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const hiddenNotificationCards = entry.target.querySelectorAll(
-          '.hidden-notification-card'
-        )
-        if (entry.isIntersecting) {
-          hiddenNotificationCards.forEach((notificationCard) => {
-            notificationCard.classList.add('show-notification-card')
-          })
-        }
-      })
-    })
-
-    const featuredWorkCard = document.querySelector(
-      '.bookmarked-notification-card'
-    )
-
-    observer.observe(featuredWorkCard!)
-  })
-</script>
 
 <style>
   .hidden-notification-card {

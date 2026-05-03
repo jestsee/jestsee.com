@@ -1,7 +1,7 @@
 ---
-import { Codepen } from '@icons/Codepen'
-import { Figma } from '@icons/Figma'
+import { Bluesky } from '@/components/icons/Bluesky'
 import { Location } from '@icons/Location'
+import { Threads } from '@/components/icons/Threads'
 import { X } from '@icons/X'
 
 import { cn } from '@/lib/utils'
@@ -10,6 +10,7 @@ import BentoBadge from './bento/BentoBadge'
 import BentoCard from './bento/BentoCard'
 import BentoItemCTA from './bento/BentoItemCTA'
 import BentoItemFeaturedWork from './bento/BentoItemFeaturedWork'
+import BentoItemFeaturedWorkCTA from './bento/BentoItemFeaturedWorkCTA'
 import BentoItemGithubActivity from './bento/BentoItemGithubActivity'
 import BentoItemMapLocation from './bento/BentoItemMapLocation'
 import BentoItemNowPlaying from './bento/BentoItemNowPlaying'
@@ -18,8 +19,8 @@ import BentoItemTypingSpeed from './bento/BentoItemTypingSpeed'
 
 const socialMedias = [
   { icon: X, href: 'https://twitter.com/jestseee' },
-  { icon: Figma, href: 'https://www.figma.com/@jestsee' },
-  { icon: Codepen, href: 'https://codepen.io/jestsee' }
+  { icon: Threads, href: 'https://www.threads.com/@jestseee' },
+  { icon: Bluesky, href: 'https://bsky.app/profile/jestsee.com' }
 ]
 ---
 
@@ -52,8 +53,9 @@ const socialMedias = [
   <!-- Location & social medias -->
   <div
     class:list={[
-      'relative col-start-1 col-end-11 row-start-1 row-end-[8] aspect-square',
-      'max-lg:col-end-3 max-lg:row-end-3'
+      'relative col-start-1 col-end-11 row-start-1 row-end-[8]',
+      'max-lg:col-end-3 max-lg:row-end-3',
+      'flex flex-col gap-4'
     ]}
   >
     <BentoBadge
@@ -61,13 +63,16 @@ const socialMedias = [
       text='Location'
       icon={Location}
     />
-    <BentoItemMapLocation className='rounded-3xl' client:only='react' />
+    <div class='size-full'>
+      <BentoItemMapLocation className='rounded-3xl' client:only='react' />
+    </div>
+    <!-- <div class='w-full flex-1'>Jakarta, May 2nd 2026</div> -->
   </div>
 
   <div
     class:list={[
       'grid grid-cols-3 gap-4',
-      'col-start-1 col-end-11 row-start-[7] row-end-[9]',
+      'col-start-1 col-end-11 row-start-[8] row-end-[10]',
       'max-lg:col-end-4 max-lg:row-start-3 max-lg:row-end-4'
     ]}
   >
@@ -90,7 +95,7 @@ const socialMedias = [
   <!-- Works -->
   <BentoCard
     className={cn(
-      'col-start-11 col-end-[24] row-start-1 row-end-[7]',
+      'col-start-11 col-end-[25] row-start-1 row-end-[6]',
       'max-lg:col-start-3 max-lg:col-end-7 max-lg:row-end-3'
     )}
   >
@@ -99,7 +104,16 @@ const socialMedias = [
 
   <BentoCard
     className={cn(
-      'col-start-11 col-end-[24] row-start-[7] row-end-[9]',
+      'col-start-11 col-end-[25] row-start-[6] row-end-[8]',
+      'max-lg:col-start-4 max-lg:col-end-7 max-lg:row-start-3 max-lg:row-end-4'
+    )}
+  >
+    <BentoItemFeaturedWorkCTA />
+  </BentoCard>
+
+  <BentoCard
+    className={cn(
+      'col-start-11 col-end-[25] row-start-[8] row-end-[10]',
       'max-lg:col-start-4 max-lg:col-end-7 max-lg:row-start-3 max-lg:row-end-4'
     )}
   >
@@ -109,7 +123,7 @@ const socialMedias = [
   <!-- Spotify & Monkeytype -->
   <BentoCard
     className={cn(
-      'col-start-[24] col-end-[37] row-start-1 row-end-4',
+      'col-start-[25] col-end-[37] row-start-1 row-end-4',
       'max-lg:col-start-1 max-lg:col-end-4 max-lg:row-start-4 max-lg:row-end-6'
     )}
   >
@@ -120,7 +134,7 @@ const socialMedias = [
 
   <BentoCard
     className={cn(
-      'col-start-[24] col-end-[37] row-start-4 row-end-[9]',
+      'col-start-[25] col-end-[37] row-start-4 row-end-[10]',
       'max-lg:col-start-4 max-lg:col-end-7 max-lg:row-start-4 max-lg:row-end-6'
     )}
   >
@@ -133,7 +147,7 @@ const socialMedias = [
   <!-- Github activity & tech stack -->
   <BentoCard
     className={cn(
-      'col-start-1 col-end-[19] row-start-9 row-end-[15]',
+      'col-start-1 col-end-[19] row-start-10 row-end-[16]',
       'max-lg:col-start-1 max-lg:col-end-4 max-lg:row-start-6 max-lg:row-end-9'
     )}
   >
@@ -147,7 +161,7 @@ const socialMedias = [
 
   <BentoCard
     className={cn(
-      'col-start-[19] col-end-[37] row-start-9 row-end-[15]',
+      'col-start-[19] col-end-[37] row-start-10 row-end-[16]',
       'max-lg:col-start-4 max-lg:col-end-7 max-lg:row-start-6 max-lg:row-end-9'
     )}
   >

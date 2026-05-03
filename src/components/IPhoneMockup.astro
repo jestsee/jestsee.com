@@ -1,0 +1,47 @@
+---
+const { class: className, ...rest } = Astro.props
+---
+
+<div class:list={['flex items-center justify-center', className]} {...rest}>
+  <!-- iPhone 15 Container -->
+  <div
+    class='h-150 relative w-72 rounded-[28px] border-8 border-zinc-900 shadow-[0_0_2px_2px_rgba(255,255,255,0.1)]'
+  >
+    <!-- Screen Content -->
+    <div
+      class='relative flex h-full w-full items-center justify-center overflow-hidden rounded-[20px] bg-zinc-900/10'
+    >
+      <slot />
+
+      <div
+        class='absolute left-1/2 top-1/2 h-24 w-12 -translate-x-1/2 -translate-y-1/2 bg-zinc-600 blur-[80px]'
+      >
+      </div>
+    </div>
+
+    <!-- Left Side Buttons -->
+    <!-- Silent Switch -->
+    <div
+      class='absolute -left-3 top-20 h-8 w-1.5 rounded-l-md bg-zinc-900 shadow-md'
+    >
+    </div>
+
+    <!-- Volume Up -->
+    <div
+      class='absolute -left-3 top-36 h-12 w-1.5 rounded-l-md bg-zinc-900 shadow-md'
+    >
+    </div>
+
+    <!-- Volume Down -->
+    <div
+      class='absolute -left-3 top-52 h-12 w-1.5 rounded-l-md bg-zinc-900 shadow-md'
+    >
+    </div>
+
+    <!-- Right Side Button (Power) -->
+    <div
+      class='absolute -right-3 top-36 h-16 w-1.5 rounded-r-md bg-zinc-900 shadow-md'
+    >
+    </div>
+  </div>
+</div>
