@@ -55,7 +55,7 @@ const socialMedias = [
     class:list={[
       'relative col-start-1 col-end-11 row-start-1 row-end-[8]',
       'max-lg:col-end-3 max-lg:row-end-3',
-      'flex flex-col gap-4'
+      'flex flex-col gap-4 max-md:aspect-square'
     ]}
   >
     <BentoBadge
@@ -63,10 +63,7 @@ const socialMedias = [
       text='Location'
       icon={Location}
     />
-    <div class='size-full'>
-      <BentoItemMapLocation className='rounded-3xl' client:only='react' />
-    </div>
-    <!-- <div class='w-full flex-1'>Jakarta, May 2nd 2026</div> -->
+    <BentoItemMapLocation className='rounded-3xl' client:only='react' />
   </div>
 
   <div

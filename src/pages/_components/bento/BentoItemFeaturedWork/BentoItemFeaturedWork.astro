@@ -13,13 +13,13 @@ import LottieAnimation from 'astro-integration-lottie/Lottie.astro'
   aria-label='Featured work'
   target='_blank'
   class:list={[
-    'relative flex h-full flex-row gap-3 overflow-hidden rounded-[inherit] px-5 pb-8 pt-4',
+    'relative flex h-full gap-3 overflow-hidden rounded-[inherit] px-5 pb-8 pt-4 max-md:flex-col',
     'max-xs:pb-36 md:max-lg:gap-4'
   ]}
 >
   <div class='space-y-8 max-md:z-40'>
     <BentoBadge icon={Suitcase} className={{ component: 'w-fit' }} />
-    <div class='space-y-3 xs:max-md:w-1/2'>
+    <div class='space-y-3'>
       <p class='text-xl leading-none'>Bible Breathing</p>
       <p class='text-sm leading-relaxed text-slate-400'>
         Find peace through gentle breathing and verses.
@@ -27,9 +27,12 @@ import LottieAnimation from 'astro-integration-lottie/Lottie.astro'
     </div>
   </div>
   <div
-    class='-mr-1 h-[108%] w-full overflow-hidden rounded-xl bg-gradient-to-b from-[#F3FFF2] via-[#A7DBAA] to-[#356D39]'
+    class:list={[
+      'w-full overflow-hidden rounded-xl bg-gradient-to-b from-[#F3FFF2] via-[#A7DBAA] to-[#356D39]',
+      'max-md:mt-3 max-md:aspect-[2] md:-mr-1 md:h-[108%]'
+    ]}
   >
-    <IPhoneMockup class:list='scale-[.9] -mt-2.5'>
+    <IPhoneMockup class:list='scale-[.9] md:-mt-2.5'>
       <div class='w-full'>
         <LottieAnimation
           src='/bible-breathing-session.json'
