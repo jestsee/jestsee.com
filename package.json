@@ -16,7 +16,7 @@
     "@astrojs/check": "0.9.4",
     "@astrojs/mdx": "4.0.2",
     "@astrojs/node": "9.0.0",
-    "@astrojs/partytown": "2.1.2",
+    "@astrojs/partytown": "2.1.7",
     "@astrojs/react": "4.1.0",
     "@astrojs/rss": "4.0.10",
     "@astrojs/sitemap": "3.2.1",

@@ -29,12 +29,14 @@ interface ZoomButtonProps
     'onClick' | 'children' | 'className'
   > {
   hide?: boolean
+  label: string
 }
 
 const ZoomButton = (props: ZoomButtonProps) => {
-  const { onClick, children, className, hide } = props
+  const { onClick, children, className, hide, label } = props
   return (
     <button
+      aria-label={label}
       onClick={onClick}
       className={cn(
         'absolute size-12 rounded-full bg-zinc-950 text-3xl leading-none outline outline-2 outline-slate-700',
@@ -117,6 +119,7 @@ const BentoItemMapLocation = ({ className }: Props) => {
       </div>
 
       <ZoomButton
+        label='Zoom Out'
         onClick={zoomOut}
         className='bottom-4 left-4'
         hide={currentZoom <= MIN_ZOOM}
@@ -125,6 +128,7 @@ const BentoItemMapLocation = ({ className }: Props) => {
       </ZoomButton>
 
       <ZoomButton
+        label='Zoom In'
         onClick={zoomIn}
         className='bottom-4 right-4'
         hide={currentZoom >= MAX_ZOOM}
