@@ -1,5 +1,5 @@
 import { zValidator } from '@hono/zod-validator'
-import { z } from 'astro:schema'
+import { z } from 'astro/zod'
 import { Hono } from 'hono'
 
 import getGithubContributions from './contributions'

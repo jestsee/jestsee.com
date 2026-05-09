@@ -1,6 +1,6 @@
 import { zValidator } from '@hono/zod-validator'
 import type { APIRoute } from 'astro'
-import { z } from 'astro:schema'
+import { z } from 'astro/zod'
 import { Hono } from 'hono'
 
 import github from './_services/github'

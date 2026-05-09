@@ -22,7 +22,6 @@ export default defineConfig({
   adapter,
   output: 'static',
   site: 'https://jestsee.com',
-  security: { csp: true },
 
   markdown: {
     shikiConfig: {
@@ -83,7 +82,7 @@ export default defineConfig({
   },
 
   vite: {
-    ssr: {
+    resolve: {
       noExternal: ['path-to-regexp', 'react-tweet']
     }
   },

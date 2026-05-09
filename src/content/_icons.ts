@@ -1,7 +1,7 @@
 import { GithubOutline as Github } from '@icons/GithubOutline'
 import { Globe as Web } from '@icons/Globe'
 import { Telegram } from '@icons/Telegram'
-import { z } from 'astro:content'
+import { z } from 'astro/zod'
 
 export const PROJECT_ICONS = { Github, Web, Telegram }
 
