@@ -3,7 +3,7 @@ import client from '@/lib/client'
 
 import BentoGithubActivityChart from './BentoItemGithubActivityChart'
 
-const response = await client.api.github.contributions.$get()
+const response = await client.api['github-contributions'].$get()
 const data = response.status === 200 ? await response.json() : null
 
 Astro.response.headers.set('Cache-Control', 'public, max-age=86400')

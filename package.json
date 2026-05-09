@@ -1,13 +1,13 @@
 {
   "name": "jestsee.com",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
     "build:node": "astro build --node",
-    "preview": "astro build --node && astro preview --node --port 5000",
+    "preview": "astro build --node && astro preview --node --port 4321",
     "astro": "astro",
     "lint": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"",
     "partytown": "partytown copylib public/~partytown"
@@ -22,8 +22,8 @@
     "@astrojs/sitemap": "3.7.2",
     "@astrojs/tailwind": "6.0.2",
     "@astrojs/vercel": "10.0.6",
-    "@hono/zod-validator": "0.4.1",
-    "@playform/compress": "0.1.6",
+    "@hono/zod-validator": "0.7.6",
+    "@playform/compress": "0.2.3",
     "@radix-ui/react-portal": "^1.1.9",
     "@radix-ui/react-separator": "1.1.1",
     "@radix-ui/react-slot": "1.1.1",
@@ -45,7 +45,7 @@
     "framer-motion": "11.14.1",
     "graphql": "16.9.0",
     "graphql-request": "7.1.2",
-    "hono": "4.6.13",
+    "hono": "4.12.18",
     "leaflet": "1.9.4",
     "lottie-web": "^5.13.0",
     "markdown-it": "14.1.0",
@@ -82,5 +82,8 @@
     "prettier-config-standard": "7.0.0",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "0.6.9"
+  },
+  "engines": {
+    "node": "22.x"
   }
 }

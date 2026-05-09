@@ -1,5 +1,3 @@
-import { GITHUB_ACCESS_TOKEN } from 'astro:env/server'
-
 interface LastUpdatedTimeData {
   lastUpdatedTime: string
   latestCommitUrl: string
@@ -16,7 +14,7 @@ const getLastUpdatedTimeByFile = async (
   }).toString()
 
   const response = await fetch(API_URL + params, {
-    headers: { Authorization: `Bearer ${GITHUB_ACCESS_TOKEN}` }
+    headers: { Authorization: `Bearer ${import.meta.env.GITHUB_ACCESS_TOKEN}` }
   })
 
   const [data] = await response.json()

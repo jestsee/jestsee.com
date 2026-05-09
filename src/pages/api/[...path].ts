@@ -1,13 +1,12 @@
 import { zValidator } from '@hono/zod-validator'
 import type { APIRoute } from 'astro'
-import { z } from 'astro:schema'
+import { z } from 'astro/zod'
 import { Hono } from 'hono'
 
-import github from './_services/github'
 import getLinkMetadata from './_services/linkMetadata'
 import getMonkeytypeData from './_services/monkeytype'
 import getSpotifyData from './_services/spotify'
-import getTweetContent from './_services/tweetContent'
+import getGithubContributions from './_services/github/contributions'
 
 const app = new Hono()
   .basePath('/api')
@@ -15,7 +14,11 @@ const app = new Hono()
     console.error('error occured >>', error)
     return c.json({ error: 'Something went wrong' }, 500)
   })
-  .route('/github', github)
+  .get('/github-contributions', async (c) =>
+    c.json(await getGithubContributions(), 200, {
+      'Cache-Control': 's-maxage=3600, stale-while-revalidate=600'
+    })
+  )
   .get(
     '/link-metadata',
     zValidator('query', z.object({ url: z.string() })),
@@ -34,17 +37,6 @@ const app = new Hono()
     c.json(await getSpotifyData(), 200, {
       'Cache-Control': 's-maxage=8, stale-while-revalidate=2'
     })
-  )
-  .get(
-    '/tweet-content/:id',
-    zValidator('param', z.object({ id: z.string() })),
-    async (c) => {
-      const { id } = c.req.valid('param')
-      return c.json(await getTweetContent(id), 200, {
-        'Cache-Control':
-          'max-age=86400, s-maxage=86400, stale-while-revalidate=600'
-      })
-    }
   )
 
 export const ALL: APIRoute = (context) => app.fetch(context.request)

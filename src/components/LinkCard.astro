@@ -2,9 +2,9 @@
 import { inferRemoteSize } from 'astro:assets'
 
 import Image from '@/components/Image'
-import client from '@/lib/client'
 
 import Link from './Link/Link.astro'
+import getLinkMetadata from '@/pages/api/_services/linkMetadata'
 
 interface Props {
   url: string
@@ -13,9 +13,7 @@ interface Props {
 
 const { url, class: className } = Astro.props
 
-const metadata = await client.api['link-metadata']
-  .$get({ query: { url } })
-  .then((res) => res.json())
+const metadata = await getLinkMetadata(url)
 
 if (!metadata.success) return
 

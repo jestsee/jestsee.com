@@ -10,6 +10,7 @@ import { defineConfig, envField } from 'astro/config'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
 import lottie from 'astro-integration-lottie'
+import playformCompress from '@playform/compress'
 
 let adapter = vercel()
 
@@ -22,7 +23,6 @@ export default defineConfig({
   adapter,
   output: 'static',
   site: 'https://jestsee.com',
-  security: { csp: true },
 
   markdown: {
     shikiConfig: {
@@ -37,6 +37,7 @@ export default defineConfig({
   },
 
   env: {
+    validateSecrets: true,
     schema: {
       MAPTILER_API_KEY: envField.string({
         context: 'server',
@@ -83,7 +84,7 @@ export default defineConfig({
   },
 
   vite: {
-    ssr: {
+    resolve: {
       noExternal: ['path-to-regexp', 'react-tweet']
     }
   },
@@ -124,19 +125,15 @@ export default defineConfig({
         ]
       ]
     }),
-    (await import('@playform/compress')).default({
-      HTML: {
-        'html-minifier-terser': {
-          collapseWhitespace: false
-        }
-      }
-    }),
     lottie(),
     sitemap(),
     react(),
     tailwind({
       applyBaseStyles: false
     }),
-    partytown()
+    partytown(),
+    playformCompress({
+      HTML: { 'html-minifier-terser': { collapseWhitespace: false } }
+    })
   ]
 })
