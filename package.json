@@ -1,7 +1,7 @@
 {
   "name": "jestsee.com",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -82,5 +82,8 @@
     "prettier-config-standard": "7.0.0",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "0.6.9"
+  },
+  "engines": {
+    "node": "22.x"
   }
 }
