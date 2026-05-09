@@ -1,17 +1,12 @@
-import {
-  SPOTIFY_CLIENT_ID,
-  SPOTIFY_CLIENT_SECRET,
-  SPOTIFY_REFRESH_TOKEN
-} from 'astro:env/server'
 import queryString from 'query-string'
 
 const BASE_URL = 'https://api.spotify.com/v1/me/player'
 
 type AccessToken = { access_token: string }
 const getAccessToken = async (): Promise<AccessToken> => {
-  const clientId = SPOTIFY_CLIENT_ID
-  const clientSecret = SPOTIFY_CLIENT_SECRET
-  const refreshToken = SPOTIFY_REFRESH_TOKEN
+  const clientId = import.meta.env.SPOTIFY_CLIENT_ID
+  const clientSecret = import.meta.env.SPOTIFY_CLIENT_SECRET
+  const refreshToken = import.meta.env.SPOTIFY_REFRESH_TOKEN
 
   const basic = Buffer.from(`${clientId}:${clientSecret}`).toString('base64')
 

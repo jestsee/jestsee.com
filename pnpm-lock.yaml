@@ -37,7 +37,7 @@ importers:
         version: 10.0.6(astro@6.3.1(@types/node@24.12.3)(@vercel/functions@3.5.0)(jiti@1.21.7)(lightningcss@1.32.0)(rollup@4.43.0)(terser@5.46.1)(yaml@2.8.4))(react@19.0.0)(rollup@4.43.0)
       '@hono/zod-validator':
         specifier: 0.7.6
-        version: 0.7.6(hono@4.6.13)(zod@4.4.3)
+        version: 0.7.6(hono@4.12.18)(zod@4.4.3)
       '@playform/compress':
         specifier: 0.2.3
         version: 0.2.3(@types/node@24.12.3)(@vercel/functions@3.5.0)(jiti@1.21.7)(rollup@4.43.0)(yaml@2.8.4)
@@ -105,8 +105,8 @@ importers:
         specifier: 7.1.2
         version: 7.1.2(graphql@16.9.0)
       hono:
-        specifier: 4.6.13
-        version: 4.6.13
+        specifier: 4.12.18
+        version: 4.12.18
       leaflet:
         specifier: 1.9.4
         version: 1.9.4
@@ -2842,8 +2842,8 @@ packages:
     resolution: {integrity: sha512-Ox1pJVrDCyGHMG9CFg1tmrRUMRPRsAWYc/PinY0XzJU4K7y7vjNoLKIQ7BR5UJMCxNN8EM1MNDmHWA/B3aZUuw==}
     engines: {node: '>=6'}
 
-  hono@4.6.13:
-    resolution: {integrity: sha512-haV0gaMdSjy9URCRN9hxBPlqHa7fMm/T72kAImIxvw4eQLbNz1rgjN4hHElLJSieDiNuiIAXC//cC6YGz2KCbg==}
+  hono@4.12.18:
+    resolution: {integrity: sha512-RWzP96k/yv0PQfyXnWjs6zot20TqfpfsNXhOnev8d1InAxubW93L11/oNUc3tQqn2G0bSdAOBpX+2uDFHV7kdQ==}
     engines: {node: '>=16.9.0'}
 
   hosted-git-info@7.0.2:
@@ -5709,9 +5709,9 @@ snapshots:
     dependencies:
       graphql: 16.9.0
 
-  '@hono/zod-validator@0.7.6(hono@4.6.13)(zod@4.4.3)':
+  '@hono/zod-validator@0.7.6(hono@4.12.18)(zod@4.4.3)':
     dependencies:
-      hono: 4.6.13
+      hono: 4.12.18
       zod: 4.4.3
 
   '@humanfs/core@0.19.1': {}
@@ -8170,7 +8170,7 @@ snapshots:
 
   hex-rgb@4.3.0: {}
 
-  hono@4.6.13: {}
+  hono@4.12.18: {}
 
   hosted-git-info@7.0.2:
     dependencies:

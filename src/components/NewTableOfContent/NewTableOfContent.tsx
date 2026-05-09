@@ -26,7 +26,7 @@ function scrollToHeading() {
   })
 }
 
-export default function NewTableOfContent({ headings, title, tags }: Props) {
+export default function NewTableOfContent({ headings }: Props) {
   const leadingContainer = useWaitForElement('bottom-nav-bar-leading')
   const upperContainer = useWaitForElement('bottom-nav-bar-upper')
   const [showList, setShowList] = useState(false)

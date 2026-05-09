@@ -6,8 +6,8 @@ import type { BreadcrumbList, WithContext } from 'schema-dts'
 
 import ContentWrapper from '@/components/ContentWrapper.astro'
 import ProjectLayout from '@/layouts/ProjectLayout'
-import client from '@/lib/client'
 import { getProjectSchema, projectWebsite } from '@/lib/structuredData'
+import getLastUpdatedTimeByFile from '../api/_services/github/lastUpdatedFile'
 
 interface Props extends InferGetStaticPropsType<typeof getStaticPaths> {}
 
@@ -23,10 +23,9 @@ export const getStaticPaths = (async () => {
 const { entry } = Astro.props
 const { Content, headings } = await render(entry)
 
-const getLastUpdatedTime = client.api.github['last-updated-file']
-const { latestCommitUrl, lastUpdatedTime } = await getLastUpdatedTime
-  .$get({ query: { path: `projects/${entry.id}.mdx` } })
-  .then((res) => res.json())
+const { latestCommitUrl, lastUpdatedTime } = await getLastUpdatedTimeByFile(
+  `projects/${entry.id}.mdx`
+)
 
 const { minutes, words } = readingTime(entry.body!)
 

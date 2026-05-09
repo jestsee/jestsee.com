@@ -1,5 +1,4 @@
 import type { APIRoute } from 'astro'
-import { MAPTILER_API_KEY } from 'astro:env/server'
 
 interface MapCoordinate {
   z: string
@@ -8,7 +7,7 @@ interface MapCoordinate {
 }
 
 const generateMapUrl = ({ z, x, y }: MapCoordinate): string => {
-  return `https://api.maptiler.com/maps/streets-v2-dark/${z}/${x}/${y}.png?key=${MAPTILER_API_KEY}`
+  return `https://api.maptiler.com/maps/streets-v2-dark/${z}/${x}/${y}.png?key=${import.meta.env.MAPTILER_API_KEY}`
 }
 
 export const GET: APIRoute = async ({ params }) => {

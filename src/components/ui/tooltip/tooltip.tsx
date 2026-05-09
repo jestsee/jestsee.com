@@ -60,7 +60,7 @@ const TooltipProvider = ({
 const TooltipTrigger = TooltipPrimitives.Trigger
 
 const TooltipContent = React.forwardRef<
-  React.ElementRef<typeof TooltipPrimitives.Content>,
+  React.ComponentRef<typeof TooltipPrimitives.Content>,
   TooltipContentProps
 >((props, forwardedRef) => {
   const {
@@ -111,7 +111,7 @@ const TooltipContent = React.forwardRef<
  * and doesn't need any additional configuration
  */
 const Tooltip = React.forwardRef<
-  React.ElementRef<typeof TooltipPrimitives.Content>,
+  React.ComponentRef<typeof TooltipPrimitives.Content>,
   TooltipProps
 >(
   (
