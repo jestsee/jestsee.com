@@ -133,7 +133,7 @@ export default defineConfig({
     }),
     partytown(),
     playformCompress({
-      HTML: { 'html-minifier-terser': { collapseWhitespace: false } }
+      HTML: false
     })
   ]
 })
