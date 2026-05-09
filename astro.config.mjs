@@ -22,6 +22,7 @@ export default defineConfig({
   adapter,
   output: 'static',
   site: 'https://jestsee.com',
+  security: { csp: true },
 
   markdown: {
     shikiConfig: {
@@ -85,6 +86,27 @@ export default defineConfig({
     ssr: {
       noExternal: ['path-to-regexp', 'react-tweet']
     }
+  },
+
+  image: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'vercel.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'assets.vercel.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com'
+      }
+    ]
   },
 
   integrations: [
