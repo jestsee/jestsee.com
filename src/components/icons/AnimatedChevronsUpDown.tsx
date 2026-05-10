@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'react'
 import { forwardRef, useCallback, useImperativeHandle, useRef } from 'react'
 import { cn } from '@/lib/utils'
-import { useAnimation, motion, type Transition } from 'framer-motion'
+import { useAnimation, motion, type Transition } from 'motion/react'
 
 export interface ChevronsUpDownIconHandle {
   startAnimation: () => void

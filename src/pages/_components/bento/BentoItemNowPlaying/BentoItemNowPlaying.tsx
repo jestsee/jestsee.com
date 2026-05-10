@@ -6,17 +6,21 @@ import { cn, fetcher } from '@/lib/utils'
 import type { SpotifyData } from '@/pages/api/_services/spotify'
 
 import BentoBadge from '../BentoBadge'
+import { useRef } from 'react'
+import { useInView } from 'motion/react'
 
 interface Props {
   initialData?: SpotifyData
 }
 
 const BentoItemNowPlaying = ({ initialData }: Props) => {
+  const ref = useRef(null)
+  const isInView = useInView(ref)
   const { data, error } = useSWR(
     'spotify',
-    fetcher(() => client.api.spotify.$get()),
+    isInView ? fetcher(() => client.api.spotify.$get()) : null,
     {
-      refreshInterval: 10000,
+      refreshInterval: isInView ? 10000 : 0,
       fallbackData: initialData
     }
   )
@@ -26,6 +30,7 @@ const BentoItemNowPlaying = ({ initialData }: Props) => {
 
   return (
     <a
+      ref={ref}
       href={data?.songUrl}
       target='_blank'
       className={cn(

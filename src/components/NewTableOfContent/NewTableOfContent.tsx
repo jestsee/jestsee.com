@@ -1,6 +1,6 @@
 import { Portal } from '@radix-ui/react-portal'
 import React, { useEffect, useRef, useState, type ComponentRef } from 'react'
-import { AnimatePresence, motion, type HTMLMotionProps } from 'framer-motion'
+import { AnimatePresence, motion, type HTMLMotionProps } from 'motion/react'
 import { cn } from '@/lib/utils'
 import type { MarkdownHeading } from 'astro'
 import { ChevronsUpDownIcon } from '../icons/AnimatedChevronsUpDown'

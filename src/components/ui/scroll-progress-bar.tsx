@@ -1,4 +1,4 @@
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
+import { motion, useScroll, useSpring, useTransform } from 'motion/react'
 import React from 'react'
 
 import { cn } from '@/lib/utils'
