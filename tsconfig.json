@@ -6,7 +6,6 @@
     "strictNullChecks": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react",
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
       "@icons/*": ["./src/components/icons/*"]
