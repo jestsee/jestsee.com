@@ -49,13 +49,13 @@ const { class: className } = Astro.props
     document.getElementById('nav-dock')?.classList.remove('!p-3')
 
     // handle hash on initial load
-    if (window.location.hash) {
-      window.scrollTo({ top: 0, behavior: 'instant' })
+    // if (window.location.hash) {
+    //   window.scrollTo({ top: 0, behavior: 'instant' })
 
-      const targetId = window.location.hash.substring(1)
-      const targetElement = document.getElementById(targetId)
-      targetElement?.scrollIntoView(scrollOptions)
-    }
+    //   const targetId = window.location.hash.substring(1)
+    //   const targetElement = document.getElementById(targetId)
+    //   targetElement?.scrollIntoView(scrollOptions)
+    // }
 
     // handle in page navigation
     document.querySelectorAll('a[href^="#"]').forEach((link) => {
