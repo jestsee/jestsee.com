@@ -54,7 +54,7 @@ const {
     alt={title}
     title={title}
     align='center'
-    wrapperProps={{ class: 'max-w-[756px] lg:mt-12 lg:rounded-md' }}
+    wrapperProps={{ class: 'max-w-[756px] lg:mt-12 lg:rounded-md w-fit' }}
     class='aspect-[2.5] w-full xs:aspect-[3.25]'
     inferSize
     ambientMode
@@ -64,11 +64,15 @@ const {
   <section class='mt-8 sm:font-light'>
     <BlogInfo pubDate={pubDate} readingTime={readingTime} />
     <h1
-      class='font-heading mt-4 text-[clamp(1.8rem,5vw,2rem)] font-semibold leading-[1.25] !-tracking-[0.01em] md:leading-[1.1]'
+      class='font-heading mt-4 w-fit text-[clamp(1.8rem,5vw,2rem)] font-semibold leading-[1.25] !-tracking-[0.01em] md:leading-[1.1]'
+      transition:name={`${id}-title-tag`}
     >
       {title}
     </h1>
-    <h3 class='mt-2 text-zinc-400 max-sm:text-sm'>
+    <h3
+      class='mt-2 w-fit text-zinc-400 max-sm:text-sm'
+      transition:name={`${id}-description-tag`}
+    >
       {description}
     </h3>
     <ul class='mt-8 flex flex-wrap gap-2'>

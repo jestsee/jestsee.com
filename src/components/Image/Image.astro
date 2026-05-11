@@ -19,6 +19,15 @@ const blurryImage = await getImage({
   width: 20
 })
 
+const getImageKey = async (src: Props['src']) => {
+  if (typeof src === 'string') return src
+  if (src instanceof Promise) return (await src).default.src
+
+  return src.src
+}
+
+const imageKey = await getImageKey(rest.src)
+
 const { class: wrapperClass, ...restWrapperProps } = wrapperProps ?? {}
 ---
 
@@ -29,6 +38,8 @@ const { class: wrapperClass, ...restWrapperProps } = wrapperProps ?? {}
     { 'ambient-mode': ambientMode },
     wrapperClass
   ]}
+  data-image-key={imageKey}
+  transition:name={`${imageKey}-transition`}
   {...restWrapperProps}
 >
   <AstroImage
@@ -91,20 +102,67 @@ const { class: wrapperClass, ...restWrapperProps } = wrapperProps ?? {}
   // because scripts are bundled and only included once per page
   // source: https://docs.astro.build/en/guides/client-side-scripts/
 
-  document.addEventListener('astro:page-load', () => {
+  type WindowWithLoadedImageSources = Window & {
+    __loadedImageSources?: Set<string>
+  }
+
+  const getLoadedImageSources = () => {
+    const scopedWindow = window as WindowWithLoadedImageSources
+    scopedWindow.__loadedImageSources ??= new Set<string>()
+
+    return scopedWindow.__loadedImageSources
+  }
+
+  const getImageSource = (image: HTMLImageElement) =>
+    image.currentSrc || image.src
+
+  const getImageKey = (div: Element, image: HTMLImageElement) =>
+    div.getAttribute('data-image-key') || getImageSource(image)
+
+  const markImageLoaded = (div: Element, image: HTMLImageElement) => {
+    div.classList.add('image-loaded')
+
+    const loadedImageSources = getLoadedImageSources()
+    const key = getImageKey(div, image)
+    if (key) {
+      loadedImageSources.add(key)
+    }
+
+    const source = getImageSource(image)
+    if (source) {
+      loadedImageSources.add(source)
+    }
+  }
+
+  function setupBlurImages() {
     const blurDivs = document.querySelectorAll('.blur-load')
+    const loadedImageSources = getLoadedImageSources()
+
     blurDivs.forEach((div) => {
       const image = div.querySelector('img')
 
-      function handleLoadedImage() {
-        div.classList.add('image-loaded')
+      if (!(image instanceof HTMLImageElement)) return
+
+      const key = getImageKey(div, image)
+      if (key && loadedImageSources.has(key)) {
+        markImageLoaded(div, image)
+        return
       }
 
-      if (image?.complete) {
-        return handleLoadedImage()
+      const handleLoadedImage = () => {
+        markImageLoaded(div, image)
       }
 
-      image?.addEventListener('load', handleLoadedImage)
+      if (image.complete && image.naturalWidth > 0) {
+        handleLoadedImage()
+      } else {
+        image.addEventListener('load', handleLoadedImage, { once: true })
+      }
     })
-  })
+  }
+
+  // Run as early as possible and on every Astro navigation.
+  setupBlurImages()
+  document.addEventListener('astro:after-swap', setupBlurImages)
+  document.addEventListener('astro:page-load', setupBlurImages)
 </script>

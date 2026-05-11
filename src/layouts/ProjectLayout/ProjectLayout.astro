@@ -58,14 +58,18 @@ const htmlTitle = _htmlTitle.replace(
   />
 
   <section class='mt-16 sm:mt-24 sm:font-light lg:mt-32'>
-    <h2 class='text-zinc-400 sm:text-lg'>
+    <h2 transition:name={`${slug}-year-tag`} class='text-zinc-400 sm:text-lg'>
       {year}
     </h2>
     <h1
       class='font-heading mt-4 text-[clamp(1.8rem,5vw,2.5rem)] font-bold leading-[1.25] sm:mt-6 md:leading-[1.1]'
       set:html={htmlTitle}
+      transition:name={`${slug}-title-tag`}
     />
-    <h3 class='mt-4 text-zinc-400 max-sm:text-sm'>
+    <h3
+      class='mt-4 text-zinc-400 max-sm:text-sm'
+      transition:name={`${slug}-description-tag`}
+    >
       {description}
     </h3>
     {

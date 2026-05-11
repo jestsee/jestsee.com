@@ -18,7 +18,7 @@ const { year, title, description, slug, heroImage, heroImageAlign } =
   Astro.props
 ---
 
-<Link href={`projects/${slug}`} class='group space-y-6'>
+<Link href={`projects/${slug}`} class='group space-y-6' transition:name={slug}>
   <Image
     src={heroImage}
     alt={title}
@@ -27,14 +27,18 @@ const { year, title, description, slug, heroImage, heroImageAlign } =
     wrapperProps={{ class: 'rounded-lg overflow-clip' }}
   />
   <div class='flex flex-col gap-4'>
-    <p>{year}</p>
+    <p transition:name={`${slug}-year-tag`}>{year}</p>
     <!-- should we use heading here? -->
     <h4
       class='font-display text-xl font-semibold !leading-[1.25] max-sm:text-lg'
+      transition:name={`${slug}-title-tag`}
     >
       {title}
     </h4>
-    <p class='text-sm text-zinc-400'>
+    <p
+      class='text-sm text-zinc-400'
+      transition:name={`${slug}-description-tag`}
+    >
       {description}
     </p>
     <span

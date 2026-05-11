@@ -5,7 +5,6 @@ import BlogCard from '@/components/BlogCard.astro'
 import BlogHeader from '@/components/BlogHeader.astro'
 import SEO from '@/components/SEO.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import { getCustomTransition } from '@/lib/customTransition'
 import { blogMetaData } from '@/lib/metaData'
 
 import Decorator from '../projects/_components/Decorator.astro'
@@ -22,7 +21,7 @@ const blogEntries = await getCollection('blog')
   />
   <Decorator slot='decorator' />
   <BlogHeader class='mt-16 sm:mt-40' />
-  <section class='mt-12 sm:mt-16' transition:animate={getCustomTransition(0.2)}>
+  <section class='mt-12 sm:mt-16'>
     {blogEntries.map((item) => <BlogCard {...item} />)}
   </section>
 </BaseLayout>

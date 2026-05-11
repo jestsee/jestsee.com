@@ -21,6 +21,7 @@ const { minutes } = calculateReadingTime(body!)
 <Link
   href={`blog/${slug}`}
   class='group flex gap-8 border-t border-t-zinc-900 py-10 max-md:flex-col'
+  transition:name={slug}
 >
   <Image
     src={heroImage}
@@ -34,11 +35,15 @@ const { minutes } = calculateReadingTime(body!)
     <div class='font-light'>
       <BlogInfo pubDate={pubDate} readingTime={minutes} />
       <p
-        class='font-display mt-3 line-clamp-2 text-lg font-semibold leading-[1.4]'
+        class='font-display mt-3 line-clamp-2 w-fit text-lg font-semibold leading-[1.4]'
+        transition:name={`${slug}-title-tag`}
       >
         {title}
       </p>
-      <p class='mt-2 line-clamp-2 text-zinc-400 max-md:text-sm'>
+      <p
+        class='mt-2 line-clamp-2 w-fit text-zinc-400 max-md:text-sm'
+        transition:name={`${slug}-description-tag`}
+      >
         {description}
       </p>
     </div>

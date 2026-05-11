@@ -4,7 +4,6 @@ import { getCollection } from 'astro:content'
 import FancyLink from '@/components/FancyLink.astro'
 import ProjectCard from '@/components/ProjectCard'
 import ProjectHeader from '@/components/ProjectHeader.astro'
-import { getCustomTransition } from '@/lib/customTransition'
 
 const projects = await getCollection('projects')
 ---
@@ -16,10 +15,7 @@ const projects = await getCollection('projects')
       >View all projects</FancyLink
     >
   </div>
-  <div
-    class='mt-12 grid gap-12 sm:grid-cols-2 lg:grid-cols-3'
-    transition:animate={getCustomTransition(0.2)}
-  >
+  <div class='mt-12 grid gap-12 sm:grid-cols-2 lg:grid-cols-3'>
     {projects.map(({ id, data }) => <ProjectCard slug={id} {...data} />)}
   </div>
 </section>
