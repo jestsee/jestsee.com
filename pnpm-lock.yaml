@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  react-tweet:
+    hash: 621ca076eb02445ed2420e2e1e71b1e5bd2b857136adedeba8f6bc5f74e3cb25
+    path: patches/react-tweet.patch
+
 importers:
 
   .:
@@ -138,8 +143,8 @@ importers:
         specifier: 4.2.1
         version: 4.2.1(leaflet@1.9.4)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react-tweet:
-        specifier: 3.2.1
-        version: 3.2.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: 3.3.0
+        version: 3.3.0(patch_hash=621ca076eb02445ed2420e2e1e71b1e5bd2b857136adedeba8f6bc5f74e3cb25)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       reading-time:
         specifier: 1.5.0
         version: 1.5.0
@@ -4053,11 +4058,11 @@ packages:
     resolution: {integrity: sha512-QgT5//D3jfjJb6Gsjxv0Slpj23ip+HtOpnNgnb2S5zU3CB26G/IDPGoy4RJB42wzFE46DRsstbW6tKHoKbhAxw==}
     engines: {node: '>=0.10.0'}
 
-  react-tweet@3.2.1:
-    resolution: {integrity: sha512-dktP3RMuwRB4pnSDocKpSsW5Hq1IXRW6fONkHhxT5EBIXsKZzdQuI70qtub1XN2dtZdkJWWxfBm/Q+kN+vRYFA==}
+  react-tweet@3.3.0:
+    resolution: {integrity: sha512-gSIG2169ZK7UH6rBzuU+j1xnQbH3IlOTLEkuGrRiJJTMgETik+h+26yHyyVKrLkzwrOaYPk4K3OtEKycqKgNLw==}
     peerDependencies:
-      react: '>= 18.0.0'
-      react-dom: '>= 18.0.0'
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
 
   react@19.0.0:
     resolution: {integrity: sha512-V8AVnmPIICiWpGfm6GLzCR/W5FXLchHop40W4nXBmdlEceh16rCN8O8LNWm5bh5XUX91fh7KpA+W0TgMKmgTpQ==}
@@ -9547,7 +9552,7 @@ snapshots:
 
   react-refresh@0.18.0: {}
 
-  react-tweet@3.2.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+  react-tweet@3.3.0(patch_hash=621ca076eb02445ed2420e2e1e71b1e5bd2b857136adedeba8f6bc5f74e3cb25)(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
       '@swc/helpers': 0.5.17
       clsx: 2.1.1

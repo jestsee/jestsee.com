@@ -56,7 +56,7 @@
     "react-dom": "19.0.0",
     "react-hotkeys-hook": "^5.1.0",
     "react-leaflet": "4.2.1",
-    "react-tweet": "3.2.1",
+    "react-tweet": "3.3.0",
     "reading-time": "1.5.0",
     "rehype-autolink-headings": "7.1.0",
     "rehype-slug": "6.0.0",
@@ -85,5 +85,10 @@
   },
   "engines": {
     "node": "22.x"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "react-tweet": "patches/react-tweet.patch"
+    }
   }
 }

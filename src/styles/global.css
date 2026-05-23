@@ -59,7 +59,7 @@
 
   .scrollbar-color {
     scrollbar-width: thin;
-    scrollbar-color: theme(colors.zinc.400) theme(colors.zinc.900);
+    scrollbar-color: theme(colors.zinc.700) theme(colors.zinc.950);
   }
 
   .text-primary-gradient {
@@ -77,6 +77,30 @@
     var(--accent-color-1),
     var(--accent-color-2)
   );
+}
+
+html {
+  color-scheme: dark;
+  scrollbar-width: thin;
+  scrollbar-color: theme(colors.zinc.700) theme(colors.zinc.950);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: theme(colors.zinc.950);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: theme(colors.zinc.700);
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: theme(colors.zinc.600);
 }
 
 :focus-visible {
