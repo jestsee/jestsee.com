@@ -1,9 +1,2 @@
 packages:
   - "."
-
-allowBuilds:
-  esbuild: true
-  sharp: true
-
-patchedDependencies:
-  react-tweet: patches/react-tweet.patch

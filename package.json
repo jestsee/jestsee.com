@@ -85,7 +85,16 @@
   },
   "engines": {
     "node": "22.x",
-    "pnpm": ">=11.21.0"
+    "pnpm": ">=9.15.9 <10"
   },
-  "packageManager": "pnpm@11.21.0"
+  "packageManager": "pnpm@9.15.9",
+  "pnpm": {
+    "patchedDependencies": {
+      "react-tweet": "patches/react-tweet.patch"
+    },
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
+  }
 }
