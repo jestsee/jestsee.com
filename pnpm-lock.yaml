@@ -4,11 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-patchedDependencies:
-  react-tweet:
-    hash: 621ca076eb02445ed2420e2e1e71b1e5bd2b857136adedeba8f6bc5f74e3cb25
-    path: patches/react-tweet.patch
-
 importers:
 
   .:
@@ -144,7 +139,7 @@ importers:
         version: 4.2.1(leaflet@1.9.4)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react-tweet:
         specifier: 3.3.0
-        version: 3.3.0(patch_hash=621ca076eb02445ed2420e2e1e71b1e5bd2b857136adedeba8f6bc5f74e3cb25)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 3.3.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       reading-time:
         specifier: 1.5.0
         version: 1.5.0
@@ -9599,7 +9594,7 @@ snapshots:
 
   react-refresh@0.18.0: {}
 
-  react-tweet@3.3.0(patch_hash=621ca076eb02445ed2420e2e1e71b1e5bd2b857136adedeba8f6bc5f74e3cb25)(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+  react-tweet@3.3.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
       '@swc/helpers': 0.5.17
       clsx: 2.1.1
