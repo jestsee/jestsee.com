@@ -2,6 +2,7 @@
   "name": "jestsee.com",
   "type": "module",
   "version": "1.0.0",
+  "packageManager": "pnpm@10.34.5",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
