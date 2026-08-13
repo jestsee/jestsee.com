@@ -84,6 +84,8 @@
     "prettier-plugin-tailwindcss": "0.6.9"
   },
   "engines": {
-    "node": "22.x"
-  }
+    "node": "22.x",
+    "pnpm": ">=11.21.0"
+  },
+  "packageManager": "pnpm@11.21.0"
 }
