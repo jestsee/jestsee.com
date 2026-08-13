@@ -85,10 +85,5 @@
   },
   "engines": {
     "node": "22.x"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "react-tweet": "patches/react-tweet.patch"
-    }
   }
 }
