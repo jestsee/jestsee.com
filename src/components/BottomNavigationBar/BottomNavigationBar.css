@@ -96,7 +96,7 @@ body.disable-scroll .tip {
 }
 
 .tip__track div {
-  height: var(2rem);
+  height: 2rem;
   padding-inline: 0.5rem;
   display: grid;
   place-items: center;
