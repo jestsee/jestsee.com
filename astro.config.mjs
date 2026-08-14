@@ -1,16 +1,16 @@
 // @ts-check
+import { unified } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
 import node from '@astrojs/node'
 import partytown from '@astrojs/partytown'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
-import tailwind from '@astrojs/tailwind'
 import vercel from '@astrojs/vercel'
+import playformCompress from '@playform/compress'
 import { defineConfig, envField } from 'astro/config'
+import lottie from 'astro-integration-lottie'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
-import lottie from 'astro-integration-lottie'
-import playformCompress from '@playform/compress'
 
 let adapter = vercel()
 
@@ -23,8 +23,23 @@ export default defineConfig({
   adapter,
   output: 'static',
   site: 'https://jestsee.com',
+  compressHTML: true,
 
   markdown: {
+    processor: unified({
+      rehypePlugins: [
+        rehypeSlug,
+        [
+          rehypeAutolinkHeadings,
+          {
+            behavior: 'wrap',
+            headingProperties: {
+              class: 'article-heading'
+            }
+          }
+        ]
+      ]
+    }),
     shikiConfig: {
       theme: 'poimandres'
     },
@@ -84,6 +99,9 @@ export default defineConfig({
   },
 
   vite: {
+    build: {
+      cssTarget: ['chrome111', 'edge111', 'firefox114', 'safari16.4', 'ios16.4']
+    },
     resolve: {
       noExternal: ['path-to-regexp', 'react-tweet']
     }
@@ -111,26 +129,10 @@ export default defineConfig({
   },
 
   integrations: [
-    mdx({
-      rehypePlugins: [
-        rehypeSlug,
-        [
-          rehypeAutolinkHeadings,
-          {
-            behavior: 'wrap',
-            headingProperties: {
-              class: 'article-heading'
-            }
-          }
-        ]
-      ]
-    }),
+    mdx(),
     lottie(),
     sitemap(),
     react(),
-    tailwind({
-      applyBaseStyles: false
-    }),
     partytown(),
     playformCompress({
       HTML: false
