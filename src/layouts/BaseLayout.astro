@@ -1,6 +1,4 @@
 ---
-import Analytics from '@vercel/analytics/astro'
-
 import BaseHead from '@/components/BaseHead.astro'
 import BottomNavigationBar from '@/components/BottomNavigationBar'
 import Footer from '@/components/Footer'
@@ -35,7 +33,6 @@ const { class: className } = Astro.props
     </main>
     <Footer />
     <BottomNavigationBar client:only='react' transition:persist='navbar' />
-    <Analytics />
   </body>
 </html>
 

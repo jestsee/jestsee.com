@@ -6,11 +6,11 @@ import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import vercel from '@astrojs/vercel'
+import playformCompress from '@playform/compress'
 import { defineConfig, envField } from 'astro/config'
+import lottie from 'astro-integration-lottie'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeSlug from 'rehype-slug'
-import lottie from 'astro-integration-lottie'
-import playformCompress from '@playform/compress'
 
 let adapter = vercel()
 
@@ -22,7 +22,7 @@ if (process.argv[3] === '--node' || process.argv[4] === '--node') {
 export default defineConfig({
   adapter,
   output: 'static',
-  site: 'https://jestsee.com',
+  site: 'https://v1.jestsee.com',
 
   markdown: {
     shikiConfig: {

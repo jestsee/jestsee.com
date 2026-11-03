@@ -19,6 +19,7 @@ const metaData = {
 }
 
 const defaultProps: SEOProps = {
+  canonical: new URL(Astro.url.pathname, Astro.site).href,
   title: metaData.title,
   titleDefault: metaData.title,
   description: metaData.description,
